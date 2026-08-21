@@ -69,9 +69,11 @@ THIRD-PARTY COMPONENTS
 ----------------------
 
 OmniAPO includes work by others under their own licences. Every component is
-named and attributed in NOTICE, with full licence texts in licenses/. Those
-components are not covered by the offer above; each is obtainable from its own
-upstream, which NOTICE identifies.
+named and attributed in the NOTICE file, with full licence texts in the
+licenses/ folder - both included inside the download alongside this file
+(not in this GitHub repository, which is presentation and documentation
+only). Those components are not covered by the offer above; each is
+obtainable from its own upstream, which NOTICE identifies.
 
 
 Copyright (c) Omnivex and contributors.
