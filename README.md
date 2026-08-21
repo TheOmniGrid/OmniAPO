@@ -215,14 +215,6 @@ Full detail, third-party attributions and the source-code offer: **[LICENSING.md
 Everything in this repository — texts, images, documentation — is offered under the same
 licence as the program.
 
-## Credits
-
-OmniAPO stands on other people's work. Equalizer APO by Jonas Thedering and contributors;
-the double-precision fork by TheFireKahuna and contributors; the VST3 hosting layer
-informed by Mixomo's implementation. FFTW, libsndfile, muparserx, TCLAP, Qt, the Steinberg
-VST3 SDK, NSIS, and Space Grotesk by Florian Karsten. Every one of them is named, with its
-licence, in the `NOTICE` file shipped with the build.
-
 ## The OmniVex suite
 
 OmniAPO is one of a family of tools sharing a design language and a philosophy —
@@ -232,10 +224,43 @@ modern, fast, no telemetry:
 
 <sub>**OmniWrappers** is four Direct3D compatibility installers — OmniDXVK, OmniDxWrapper, OmniVKD3D and OmniVoodoo2.</sub>
 
+<sub>Tuned for framerate, mixed for headroom, sharp to the pixel. Donationware
+tools for gamers and audiophiles — audio, graphics, and a bit of privacy too.</sub>
+
+More at [github.com/TheOmniGrid](https://github.com/TheOmniGrid).
+
+---
+
+## Credit
+
+OmniAPO stands on other people's work. It is a maintained fork of
+**[Equalizer APO](https://sourceforge.net/p/equalizerapo/)** by **Jonas Thedering** and
+contributors, by way of the **double-precision fork by TheFireKahuna** and contributors,
+with a VST3 hosting layer informed by
+**[Mixomo's implementation](https://github.com/Mixomo/EqAPO64_with_VST3_support)** — all
+GPL-licensed, and the reason this one can be.
+
+Also FFTW, libsndfile, muparserx, TCLAP, Qt, the Steinberg VST3 SDK, NSIS, and
+**Space Grotesk** by Florian Karsten. Every one of them is named, with its licence, in the
+`NOTICE` file shipped with the build, and in [LICENSING.md](LICENSING.md).
+
+---
+
+## Contact
+
+Built by one person, on one machine, and offered as-is with no support commitment behind
+it. Bug reports are still read.
+
+Security issues: report privately rather than in a public issue. Source requests under the
+GPL go to the same address — see [LICENSING.md](LICENSING.md) and
+[WRITTEN-OFFER.txt](WRITTEN-OFFER.txt).
+
+**omnivex@theomnigrid.biz**
+
 ---
 
 <div align="center">
 
-Copyright © Omnivex · GPL v3 or later · VST is a trademark of Steinberg Media Technologies GmbH; OmniAPO is not affiliated with Steinberg.
+Copyright © 2026 OmniVex · GPL v3 or later · VST is a trademark of Steinberg Media Technologies GmbH; OmniAPO is not affiliated with Steinberg.
 
 </div>
