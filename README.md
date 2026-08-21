@@ -259,19 +259,26 @@ Also FFTW, libsndfile, muparserx, TCLAP, Qt, the Steinberg VST3 SDK, NSIS, and
 
 ## Contact
 
-Built by one person, on one machine, and offered as-is with no support commitment behind
-it. Bug reports are still read.
+Use public channels only for information that is safe to share. Remove usernames, local paths,
+account identifiers, licence data, and other personal information from screenshots and logs.
 
-Security issues: report privately rather than in a public issue. Source requests under the
-GPL go to the same address — see [LICENSING.md](LICENSING.md) and
-[WRITTEN-OFFER.txt](WRITTEN-OFFER.txt).
+| Channel | Use |
+|---|---|
+| [GitHub Issues](../../issues/new/choose) | Reproducible bugs, compatibility reports, and documentation corrections |
+| [GitHub Discussions](../../discussions) | Questions, ideas, and community support |
+| [Security](SECURITY.md) | Private vulnerability reporting — never use a public issue |
+| [Email](mailto:omnivex@theomnigrid.biz) | Private support, delivery, or licensing questions |
 
-**omnivex@theomnigrid.biz**
+Support is best-effort. See [SUPPORT.md](SUPPORT.md) and [CONTRIBUTING.md](CONTRIBUTING.md)
+for repository scope and reporting guidance.
 
 ---
 
-<div align="center">
-
-Copyright © 2026 OmniVex · GPL v3 or later · VST is a trademark of Steinberg Media Technologies GmbH; OmniAPO is not affiliated with Steinberg.
-
-</div>
+<p align="center">
+  <strong>OmniAPO</strong><br>
+  <a href="https://github.com/TheOmniGrid">The OmniGrid on GitHub</a> ·
+  <a href="https://ko-fi.com/theomnigrid">Ko-fi</a> ·
+  <a href="https://www.patreon.com/TheOmniGrid">Patreon</a><br><br>
+  <sub>Copyright © 2026 OmniVex · GPL-3.0-or-later · <a href="LICENSING.md">Licensing</a></sub><br>
+  <sub>VST is a trademark of Steinberg Media Technologies GmbH; OmniAPO is not affiliated with Steinberg.</sub>
+</p>
