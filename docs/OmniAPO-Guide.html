@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide &mdash; OmniAPO</title>
+<style>
+/* BEGIN GENERATED PALETTE (tools/brand/make_brand.py) - do not edit by hand.
+   Rewritten from tools/brand/omni_tokens.py on every run; edit the tokens. */
+:root{
+  --surface:#0C0C14; --panel:#23232F; --field:#1B1B26; --line:#2A2A31;
+  --text:#E9E8F2; --muted:#9C9AB2; --dim:#6E6D84;
+  --a:#6D31FA; --b:#B147FB; --c:#E15CFC; --accent:#B147FB;
+  --warn:#ECAA0B; --ok:#00C66D; --err:#F1383E;
+  --mono:"Cascadia Mono","Consolas","Courier New",monospace;
+  --sans:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+}
+/* END GENERATED PALETTE */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:1rem}
+body{margin:0; background:var(--surface); color:var(--text);
+     font:15px/1.65 var(--sans); -webkit-font-smoothing:antialiased}
+a{color:var(--c); text-decoration:none}
+a:hover{color:var(--text); text-decoration:underline}
+code,kbd{font-family:var(--mono); font-size:.91em}
+:not(pre)>code{background:var(--field); color:#D8D8E2; padding:.12em .4em;
+               border-radius:4px; border:1px solid var(--line); white-space:nowrap}
+
+.wrap{display:grid; grid-template-columns:265px minmax(0,1fr); max-width:1320px; margin:0 auto}
+nav{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
+    padding:1.6rem 1rem 3rem 1.4rem; border-right:1px solid var(--line)}
+main{padding:2.4rem 2.6rem 6rem; min-width:0}
+
+.brand{display:flex; align-items:center; gap:.7rem; margin-bottom:.35rem}
+.brand-t{font-weight:650; font-size:.95rem; line-height:1.2}
+.brand-s{color:var(--dim); font-size:.72rem; font-family:var(--mono)}
+
+#q{width:100%; margin:1.1rem 0 .5rem; padding:.5rem .65rem; border-radius:7px;
+   background:var(--field); border:1px solid var(--line); color:var(--text); font:13px var(--sans)}
+#q:focus{outline:none; border-color:var(--accent)}
+#qn{color:var(--dim); font-size:.72rem; min-height:1.1em; margin-bottom:.4rem}
+
+nav ol{list-style:none; margin:0; padding:0}
+nav li a{display:block; padding:.24rem .55rem; border-radius:6px; color:var(--muted);
+         font-size:.855rem; border-left:2px solid transparent}
+nav li a:hover{background:var(--panel); color:var(--text); text-decoration:none}
+nav li a.on{color:var(--c); border-left-color:var(--c); background:var(--panel)}
+nav .grp{color:var(--dim); font-size:.68rem; letter-spacing:.13em; text-transform:uppercase;
+         margin:1.15rem 0 .35rem .55rem; font-weight:600}
+nav li.hide,nav .grp.hide{display:none}
+
+h1{font-size:1.85rem; line-height:1.2; margin:0 0 .35rem; font-weight:640; letter-spacing:-.01em}
+h2{font-size:1.28rem; margin:3.1rem 0 .9rem; padding-bottom:.45rem;
+   border-bottom:1px solid var(--line); font-weight:620; scroll-margin-top:1rem}
+h3{font-size:1.02rem; margin:2.1rem 0 .55rem; font-weight:620; scroll-margin-top:1rem}
+h2:first-of-type{margin-top:2.2rem}
+.lede{color:var(--muted); font-size:1.02rem; max-width:62ch}
+
+pre{background:#08080B; border:1px solid var(--line); border-radius:9px;
+    padding:.85rem 1rem; overflow-x:auto; margin:.85rem 0; line-height:1.55}
+pre code{white-space:pre}
+.k{color:var(--c)} .n{color:var(--warn)} .s{color:#9CE8B4}
+.cm{color:var(--dim); font-style:italic}
+
+table{border-collapse:collapse; width:100%; margin:.9rem 0; font-size:.885rem;
+      display:block; overflow-x:auto}
+th,td{text-align:left; padding:.46rem .7rem; border-bottom:1px solid var(--line); vertical-align:top}
+th{color:var(--muted); font-weight:600; font-size:.74rem; letter-spacing:.07em;
+   text-transform:uppercase; white-space:nowrap}
+tbody tr:hover{background:#1E1E25}
+
+.note{border-left:3px solid var(--accent); background:#191922; padding:.7rem 1rem;
+      border-radius:0 8px 8px 0; margin:.9rem 0; font-size:.91rem}
+.note.warn{border-left-color:var(--warn); background:#1E1608}
+.note.tip{border-left-color:var(--ok); background:#0B1F18}
+.note b{color:var(--text)}
+.note p:first-child{margin-top:0} .note p:last-child{margin-bottom:0}
+
+.steps{counter-reset:s; list-style:none; padding-left:0}
+.steps>li{counter-increment:s; position:relative; padding-left:2.4rem; margin:1.1rem 0}
+.steps>li::before{content:counter(s); position:absolute; left:0; top:-.1rem;
+  width:1.7rem; height:1.7rem; border-radius:50%; background:var(--panel);
+  border:1px solid var(--line); color:var(--c); font:600 .8rem/1.7rem var(--mono);
+  text-align:center}
+
+ul,ol{padding-left:1.3rem} li{margin:.3rem 0}
+footer{color:var(--dim); font-size:.83rem; margin-top:3.5rem;
+       border-top:1px solid var(--line); padding-top:1.2rem}
+.hit{background:#3A2E05; border-radius:3px; box-shadow:0 0 0 2px #3A2E05}
+section.hide{display:none}
+#nores{display:none; color:var(--muted); padding:2rem 0}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr}
+  nav{position:static; height:auto; border-right:0; border-bottom:1px solid var(--line)}
+  main{padding:1.6rem 1.2rem 4rem}
+}
+@media print{
+  :root{--surface:#fff;--panel:#fff;--field:#f4f5f9;--line:#ccc;--text:#111;
+        --muted:#444;--dim:#666;--a:#3A1F9E;--b:#5B3FD1;--c:#6B2FA0}
+  nav,#q,#qn{display:none} .wrap{display:block} main{padding:0}
+  pre{background:#f7f8fc} section.hide{display:block!important}
+  h2{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <div class="brand">
+    <!-- BEGIN GENERATED MARK (tools/brand/make_brand.py) - the product icon as a data URI; rewritten on every run. -->
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAQJklEQVR42sWae6xlZ1nGf++31r6cs0/nemamw9xb2mpJp9gUWrm09CI0XFoINERNBDVGEgPBRE000UmVP4hijMQoSCMEwQhNESIGYhCEtIBiQCqSAtPpRdrOzLnts+9rre97X//41lp77TMtSmLiOrPnnLX3Xmt/7+15n/f5Njz/IbfeemvKj3uI8H98pMDz3vT5XnCAAtx1112drWF+S5blt6gPL1INe4MZIYS2cy6YmpqGLk7y6WTs07R1NklbV5ppR0NwpVGKmcNEzYILQR2AJIKZGiaYmgTzKmZ9xB4TkX/upPKFc+fObe9c04804MyZM+6+++5TM5NbXvXaX51l2bsL768JwWOqBFVMDTUDDFMDJwz7G2TZ7JHde/YfF5fsMVPM4j3NFAxUFcOI/+bXGyBY/LEYRFPFTJ/B9INixR9fuHBhDCRAeF4D7r333uSBBx4Id975+uPbo8mHfQi350WO+qCGqpmJGYQQykUZSdpiu7/OdDx6eP+hoyfF9HgIwZceMy2tsNpgxUCidYKamplK+Z5ommFmJpglIoKZfkdU37a+/uw3dxohOz1/0ytuP53n4bNFnh/z3nsRcWbqzAxVw0xRNULwJGnLRtsbTCejr6weOnbCTE9qCGpmzqpF1y6NntYQqtNoUB0Fqx1pZpiGeImZN6Rl6NAsv2d7Y+NLTSOkkV92++2ve8HmYPvreV4c1eA9Iml1Q1WNKWDx3Dlh0N+w2XTy0N7Vw8cETgJq4KzytEavV0vFJDrAFDNFACM+Z2alYTGNKD8TQM0CkGA2Eg2v6PfXvl3VhAPkzJkzmBkb21sf9T4cVfXeIG0uXFUxLdMmiYufzqZf37Pv0Emwk0EDeTFz49E248EWo8EW41Gf8Wib8ajPZDRgOh1SFBlYQMTFKjCtU8HU6qhZFTnAiSSYBZAVhU8cOHBgpca8Ku9Pv/jmXw5q9/tQeEFSK0Me891QDWAJyswmw6wo8tk3du9bPWEajk6nI4o8K9K0laZpW5I0wawsy3JBqvE+wReoBQRHkrZwSUIVsTJUMV5lJGJkpIyaeYFUQ/4Hw+2t3wMSKfG+s7Y5+W5QPWlmZqquStSgVbhTMr9Fxx/jQO+W0dPZg5N8lh2cTYejJG2P2+3uKG21T4UQnKmipRdNFaREmbJwRUA1EHwBCGmrBeJK5DHElTVjVfHXvyNqWxiIz64ajUbrDrCN/vQONTsVQjBTdWqGhlCnjkhK7rdo+WMcW73bLhafWxn01w7OZuP/WL5sX7/TXemZuCuzbOa892W6BSjzukSWGIHgKbxHDZJWhyRJKPIMDR4pU8a0Aozo/aq+DQTMHG4PJPdUxUtRFK/VoGaqqqUXVJWgASFhmq2T5qc4vnq3/WDjfjl/8fvrabL80PLK7n0W9KhqWDEzE5EaFar8LtGzUaiCIKgZ3nuCCS5tEXxB8AURNu2SbmUVZhmGiJm4u6o2jQa9QQ1RjR0SKD2fMMnX6HEtRw7ead9f+4AM+hd/eNmuy59w4m7ErItYtVqpUmbutVgHzWZjNSJZ+TkR0l3SIvg8IlySMu8f8x6CGQLOzAThOqDtXvayl10WzI6EeCPRCr7EWe6H7JIbOLL/Nju78QEZDNbXersO/tA5eblZ6Jqq1R9gO3C8hMqYPvOa0LpYrX4dYpFLkhJCqI2av6cOaekVA2TfysrKbre5WbRNNRURquajhuXFSHSyJ1vddYM/u/EhGW1v+927DqkTuVlVBRFTM6kXiS6Evll8Gj1Xt6oIkZcSMFVFEoeGUPcOKT1vVQXUfQVnZs45NzbVMMd5UFUv21ub68ENvvV4/2M6Hg60t7I3qOmh6EHDzOol7MRvaxRv87nK29SIxHMabICpL+thnnKmNveCxj+c90vOwGmEPvU+d/2ttfWl3p6z7W56g8+Ldru9JOLSNFSe0TLXTSn8DFWPmOxIm7IJVrlewyLPu/g6VUTQoCXp49L3Nt7vVIOYmQPMF1nS3zj/1HJv9xOddvemELTt/Yx2d1mKIk8ktktEhCLkTEPBgcuOk7R6jIsxEYOkThtd8D6NnKd+vl68Mcd+jV04hAJXolLVQ5rEsDRgIE4ceT6T/uaFcyu7DjzbSls3YCZFPrW01S69UbV8R+Ez9iwf5n23fJgHb/0in/yZz3HribsZ59EI+3FHFmtwoPLwhQdTvC+QRofeeXO3d+8xzbJxd9jfeHzX3oObaSu9qWKf3heSpm2899GzJRstDH7r+vfxhuVXc/HihCOzK3jvdX/Gid0/ySxMwOSSFVZoUnvTYh43z0WEVtpiNp1w4w0v4a//6kGuOHUlWZYhzkHD85WxbjDod7wPj+zac6BIkvRGDcEi9wg4EWLdRDrgxDHKB9x0+NXc1nsVDz75Zd741dP8/nfPsE+XedPRX2QWclxjrNzp2cVkn/8SEfIsY3vQJxQzjhw9zonjV7N/3yoh+MhsKMFB5pOr837gO92lQy6Rq01Vpezn6j3OJSUyRQ8F9bRbPe498m62xoH7n3gPmW3zD898mG9uPsOdB9/CoaVjZGHWWFhzsVbTheYInSYpeTbjqhdeze/+9n3s3rvKYHvAhYsXmU4n9TWCXFL4jl4PVT2gqgYR12ObLxCX1DxeRJj4ATcfuodrl67nM+c/xaPDf2Fv6zADv8Fnnv4ol3f28NOrdzEN40iX7dLeYCUcVnS5yAu2B33ybMzp627gdXe9lSNHTjCZThgMB2X6NlKRRarhytZWYIjNP4l6Uq3orHp67b3cceBdPD3K+PQzf0pLWgQr6LglvnjxAR4fZNx26O10XY+gfo4ajdkXi6mYuhZFnnPFqSv49Xf+Jiu79rI92ObsubPkeU5RFFxcWyMvih2puEhNHOOa5c2bDjRw3RAc42KTF+97C4fTq/n8+b/h8dG3aLsewTwdt8TTk0f5wtpnObF8mmt238wsDHHiFlAm3tOYFmMmxZBsOuL60y/h7tf/HEePnmA8HtHv9wne44uCza1NijxCqdTkUBdqysE4DgtzGkHQjMAEo8DMk4cxh1eu48Y97+TJ4Ygvrb2ftlsiWIh4j5KI44sXPsJWDjfuf1tjKClz1TkKzUCMq1Z/iusPv5xdvQNsD7c5e/YsRR5p9ubWJj54ggZGwwE+FHUB19S0EYJURKIGEAkcajMua53kxfvfQ2IrpAkkztiXXkEvHOArm3/Ihdn3WEr2o+ZrRtlxPR4bPsy/bXybk73Xc6BzFZvZk7RcBwy85uxdupy3X3M/13RfyeXL8KnW/Tw6e4DhaIwP0euDQZ8QPN57RuMRRVHM+XSlBjQMcCWnkble40l0P+3x7STjl9KevpTl7CbycY+H1z/E1zbeR8ftLhc/Z5QiCV4nfG3tg+R5lxde9ia8jhGSaCQFbzjxfl5gr+Rfn/0SD5z9GN9Y+0eKzHNx7TxBPVme0d/eQk0pfMFwNCghVBYpxLwdxHmgRgUCCUv0w7f4yvB6nHRrvA02YeCfIpHuQiuvjqCelvQ4O/h7Huvdx5HO21lO/wIzIwsDfmLvPVwur+HLFx/g00//LCoOyzw3Zrez2V9HQ8D7gtF4GP8uCobDbaI4Amq62EGkgULNAToCVcKUpxn67zEIj7HtzzIK52nJChIVmOcgY4ajzSQ8y6PbH6UVTnKwfRvj4jztpMe1K7/D+eGUh9bfQypdLktWaSUrzPIZ6+sX46hZp1Cg8AXjybBEQdcgcIKpoqGg1+vhRMTqTlXpMqqkyTKOTv1IaKEW5gPGArGqDIkRfGr6MYaZ50T3N9i3dA3X7nkXXX+aRwYfYjP/Di3Xw1ssaO9zBsPtOF6GwGQyqWfxLMvKfjLveqoe00Da7jAej0mWDh3qhln+DqDWWmr+3ZiorNn3uZQSU1IOocNMf0jKKqvcw9Hur7DH7qCfn+Pb43c0HGCNzuxYX382TmIibGycJ/gAGIPhVtlUXaliGK12V4IPUyf653Lq1KlD26P8P4H9zRE2yoBR0DVxCzT4UloTA6j1gqLRR9NfYzd3EOQZngp/xCj8AEd3QZ+tRATnXD2KSqnWxcUuRQkmeARI2x0L3ouZbSQSXpQuzBEVJ680DJdgGkq7nocG1y3cFmQEQXiyeC+J/AnBcoQOjiUUH6uopBLVwitCJyQg0XmdzhJBI6VOnCNpdeb0uuoD46YXd7AOTBCXoMGDS3ZMTtYwYk7MKrgTEVLZByipLJdpGBfPAmVpnKqCCBYCqWsBjiKf0GqluKSF98UcQiwy5JTxGLNkgffM6URsbs4lhBCielY1kpK/Y3oJIkmdar7Bl+P2xCW1VLHUuRURHluO2WxEu9VFEocvYh3YDsNdkiTBDF99itpCDGJOuoQkiRskEkF5cQBfIIBN9afxszDUL0gRczEXUDXSFjjbxbHVtyIuwRceVw00c0iy8Rjcs8/uHYBtY7UA2Oh6VXEqkqQxOhrqQq0WI7WxVu+0xGt17t3nKP5a0C27paqRtJWWO8jR1TezOX6YPJ8s1EmlMIrYAMYDB9/NMTtrNZbsLMj4SigHnCRxUemu9b7Kx4sjo5VF+VzI1VTwKqeYGUmroOOO84J9b+a/Nj7BePYUadLdeX0EbNVzwNQRJfQvYCqoWmzZshDWyouqIaZTmmJaoOpZiJjpPI3MfvRwL5FV+lCQJAlJO7DcuprD+1/Dk2sfIc+3aKUrtWNoRsAMVL9cUwlH8XeqYWaYM1WLm3ENrb7+X8r9AmiVynLE6NAgu9JQmXWeJnXn1poKaPB0O8vgjK67msMHbueJCx/BhwmJ65aRntdayZqdmXrQT1LuNSVZlm2120snnHM3mpW7DzJvULUuKCClmKuquCQlbaU4F6EvjqNhQQKp+FXcW4up4kRIW21a7S7ee4psSqe7m7X+V1HNcUmnhKxGFsS6CyKSqPqP53l2f7XB4QDr9XoHk7T7iIkcKN3togogzdRjsRXE1yNCzZU5K6X5uVwCLkkjkkj0TQiKLzJEoN1ZIs+nQFISNy2hQRtNBgURU9/PZHKaKU83t9UTICzv2vuaRNznrU68qJBYYzfQGl13x+4J4lyt/y9eVcmZWm2zEnxB4oRWe4m8yGnuLFT7ys1Ly1ecD/kbQ55/plpz0gDupMhmP0jbncdF5E2IODX1YFIPcdLsELJQkM28r8TinY9aICipQdrq4ouihmSp0rbR1iJxksQwUZ/9ki+Kv21usyY7lKakyGf/nibpNxBuFdyekiIFQC/pVLGsFmXn+UMrql5JTYhY8DlJklqSts37QkvvWM3k6gYiFtNbnJk+Y5r/fFEUn9i50Z08h1yWFEX+/XYr+bhCYsbVAr0yeV3pnsZDFs6tei4S+SrpBRGnvnCttC2SpOKLXJxzrkRoqXk1OBHnAKcW1tT8X+bZ5BdCCN/8H79q0DjqN/Z6vYMhcCeOl2NypQm7BJzR+OpF9TUMV+n2AmLBzHJBuuJENGhwCc5JSyKvqaUGiRxeMKxAbIzKWTN9qChm/wSs7VzT//qLM88Rof+PI/lRX7f5b8cXu2Y+2fRUAAAAAElFTkSuQmCC" width="30" height="30" alt="" aria-hidden="true" style="display:block;border-radius:7px">
+    <!-- END GENERATED MARK -->
+    <div>
+      <div class="brand-t">Guide</div>
+      <div class="brand-s">OmniAPO &middot; 1.0.1</div>
+    </div>
+  </div>
+
+  <input id="q" type="search" placeholder="Filter (press /)" autocomplete="off" spellcheck="false">
+  <div id="qn"></div>
+
+  <ol id="toc">
+    <li class="grp">Start</li>
+    <li><a href="#what">What this is</a></li>
+    <li><a href="#first">First five minutes</a></li>
+    <li><a href="#tools">The tools</a></li>
+
+    <li class="grp">Using it</li>
+    <li><a href="#configs">How configurations work</a></li>
+    <li><a href="#check">Checking a configuration</a></li>
+    <li><a href="#plugins">Adding plugins</a></li>
+    <li><a href="#frontends">Peace, HeSuVi, OmniEQ</a></li>
+
+    <li class="grp">When it goes wrong</li>
+    <li><a href="#silent">Nothing is happening</a></li>
+    <li><a href="#repair">Self-repair</a></li>
+    <li><a href="#trouble">Other symptoms</a></li>
+
+    <li class="grp">Reference</li>
+    <li><a href="#whatsnew">What this build adds</a></li>
+    <li><a href="#where">Where everything lives</a></li>
+    <li><a href="#credits">Credits &amp; licence</a></li>
+  </ol>
+</nav>
+
+<main>
+<h1>OmniAPO Guide</h1>
+<p class="lede">Getting from a fresh install to a working setup, and what to do when
+something is not working. For the exhaustive list of every configuration command, see the
+<b>Configuration Reference</b> in the same Start Menu group.</p>
+
+<div id="nores">No section matches that filter.</div>
+
+<section id="s-what">
+<h2 id="what">What this is</h2>
+<p>OmniAPO is an <i>Audio Processing Object</i>. Windows loads it inside
+<code>audiodg.exe</code> and hands it every sample on the way to or from a device. That has
+two consequences worth understanding before anything else:</p>
+<ul>
+<li><b>It affects every application at once</b> &mdash; not one player at a time. Browser,
+game, media player and voice chat all go through the same chain.</li>
+<li><b>There is nothing to launch or keep running.</b> If a device is enabled in the Device
+Selector, OmniAPO is already in its signal path. The Editor is a tool for writing the
+configuration, not the thing doing the work.</li>
+</ul>
+<div class="note"><p><b>Why the folder still says EqualizerAPO.</b> OmniAPO is a private build of
+Equalizer APO and deliberately keeps the original install path
+(<code>C:\Program&nbsp;Files\EqualizerAPO</code>) and registry key. Peace, HeSuVi, OmniEQ and
+other front ends locate the engine through exactly those, so renaming them would leave every
+one of those tools unable to find it. The installer does not offer the location as a choice.</p></div>
+</section>
+
+<section id="s-first">
+<h2 id="first">First five minutes</h2>
+<ol class="steps">
+<li><b>Pick your devices.</b> Open the <b>Device Selector</b> (it asks for administrator
+rights) and tick the playback and recording endpoints OmniAPO should process. Nothing happens
+on a device that is not ticked.</li>
+<li><b>Confirm it is actually in the path.</b> Open the <b>Configuration Editor</b>. If the
+registration on a device was lost, it says so here and offers to repair it.</li>
+<li><b>Make one obvious change.</b> In the Editor add a <code>Preamp</code> of
+<code>-10&nbsp;dB</code> and save. Music should get quieter within about a second. Undo it.
+That is the whole feedback loop &mdash; edit, save, hear it.</li>
+<li><b>Check your configuration is clean.</b> Use <b>Check configuration</b> in the Start menu,
+or run <code>Benchmark.exe --check</code> from the install folder. It prints anything the
+engine rejected, which otherwise only reaches a log file nobody opens.</li>
+</ol>
+<div class="note tip"><p><b>Before a big edit, copy the <code>config</code> folder somewhere
+safe.</b> Nothing you write can damage the machine &mdash; the worst case is that processing
+stops &mdash; but a copy turns "what did I change?" into a five-second question. The folder is
+plain text; <code>git init</code> in it works well.</p></div>
+</section>
+
+<section id="s-tools">
+<h2 id="tools">The tools</h2>
+<table>
+<thead><tr><th>Tool</th><th>What it is for</th></tr></thead>
+<tbody>
+<tr><td><b>Device Selector</b></td><td>Chooses which endpoints OmniAPO attaches to. Needs
+administrator rights, because it writes the APO registration. Changes take effect when the
+device is next opened.</td></tr>
+<tr><td><b>Configuration Editor</b></td><td>Writes the configuration with a live frequency
+response, a device dropdown and a plugin browser. Everything it can do you can also type by
+hand; it wins for dialling a curve by ear and for the syntax that is painful to type.</td></tr>
+<tr><td><b>Benchmark</b></td><td>Offline harness. Checks a configuration, or measures what a
+chain costs, with no audio device involved.</td></tr>
+<tr><td><b>Health Agent</b></td><td>Verifies that OmniAPO is still registered for the devices
+that use it, and offers to repair the registration when it is not. Runs at logon if you kept
+that component, and on demand from <b>Check registration</b>.</td></tr>
+</tbody></table>
+</section>
+
+<section id="s-configs">
+<h2 id="configs">How configurations work</h2>
+<p>Everything OmniAPO does comes from plain text files in
+<code>C:\Program&nbsp;Files\EqualizerAPO\config</code>. The engine always starts at
+<code>config.txt</code>, reads top to bottom, and builds a chain of filters in that order.
+Save the file and the change is live within about a second &mdash; no restart, no toggling
+the device.</p>
+
+<pre><code><span class="cm"># config.txt - typically nothing but Include: lines</span>
+<span class="k">Include</span>: <span class="s">omnieq.txt</span>
+<span class="k">Include</span>: <span class="s">HeSuVi\hesuvi.txt</span></code></pre>
+
+<p><b>Order is the whole model.</b> A <code>Preamp</code> after a limiter does something
+different from one before it. And a <code>Channel:</code> line stays in effect until the next
+one &mdash; forgetting to switch back to <code>Channel: all</code> is the single most common
+mistake.</p>
+
+<div class="note tip"><p><b>One file per concern, assembled by <code>config.txt</code>.</b>
+It keeps diffs readable, lets you disable one concern without unpicking a wall of filters, and
+&mdash; most importantly &mdash; means a front end that rewrites its own file can never clobber
+your handwritten work.</p></div>
+
+<p>The <b>Configuration Reference</b> documents every command in detail. Start there when you
+want to know what is possible.</p>
+</section>
+
+<section id="s-check">
+<h2 id="check">Checking a configuration</h2>
+<p>The engine reports what it rejected, but only to <code>%TEMP%\EqualizerAPO.log</code>. The
+checker puts it in front of you instead:</p>
+<pre><code>Benchmark.exe --check
+Benchmark.exe --check --config <span class="s">D:\configs\test</span></code></pre>
+<p>The second form checks a configuration <b>before</b> you copy it into place. It exits with
+code 1 if anything was reported, so it works in a script too.</p>
+<div class="note warn"><p><b>Two things it cannot catch</b>, because the engine does not report
+them either: a <b>misspelled command name</b> is dropped in silence, and a bare whole number in
+<code>Copy:</code> selects a channel rather than setting a gain. If a line seems to be ignored
+and the checker is quiet, check the spelling first.</p></div>
+</section>
+
+<section id="s-plugins">
+<h2 id="plugins">Adding plugins</h2>
+<p>OmniAPO hosts VST2 and VST3 effects in the same chain as its own filters. Plugins must be
+<b>64-bit</b>.</p>
+<pre><code><span class="k">VST3Plugin</span>: Library <span class="s">LoudMax.vst3</span>
+<span class="k">VST3Plugin</span>: Library <span class="s">"C:\Program Files\Common Files\VST3\Airwindows Consolidated.vst3"</span> CID <span class="s">{...}</span></code></pre>
+<div class="note tip"><p><b>Let the Editor write these lines.</b> It lists the effect classes
+inside a module, shows the plugin's own interface, and emits the correct <code>CID</code> plus
+a saved state. Typing a GUID and a base64 blob by hand is not a good use of an evening.</p></div>
+<div class="note"><p><b>Latency is compensated automatically.</b> One boundary worth knowing:
+if a plugin changes its latency while running &mdash; LoudMax's ISP switch, for example &mdash;
+the new value is picked up at the <b>next configuration reload</b>, not mid-stream. Re-save the
+file after toggling such an option.</p></div>
+<div class="note warn"><p>A plugin that crashes is disabled rather than being allowed to take
+<code>audiodg.exe</code> down with it. That is a safety net, not a licence to run unstable
+plugins &mdash; test new ones at low volume.</p></div>
+</section>
+
+<section id="s-frontends">
+<h2 id="frontends">Peace, HeSuVi and OmniEQ</h2>
+<p>These write configuration files for you. They keep working with OmniAPO because the install
+path, registry key and file format are unchanged &mdash; that is the whole reason those were
+left alone.</p>
+<div class="note warn"><p><b>Decide which file each tool owns.</b> If two tools write the same
+file, one will overwrite the other's work without warning. Give each its own file and reference
+it from <code>config.txt</code> with a single <code>Include:</code> line. This is the most common
+way people lose an afternoon's tuning.</p></div>
+<p>A useful pattern is a final safety limiter placed <i>after</i> every <code>Include:</code>,
+so it catches whatever any front end leaves on the bus:</p>
+<pre><code><span class="cm"># last line of config.txt</span>
+<span class="k">VST3Plugin</span>: Library <span class="s">LoudMax.vst3</span></code></pre>
+</section>
+
+<section id="s-silent">
+<h2 id="silent">Nothing is happening</h2>
+<p>In rough order of likelihood:</p>
+<ol class="steps">
+<li><b>The device is not ticked</b> in the Device Selector &mdash; or the one that is ticked is
+not the one Windows is actually using. Endpoints with similar names are easy to confuse.</li>
+<li><b>The registration was lost.</b> Open the Editor; it detects this and offers a repair.
+A Windows feature update is the usual cause.</li>
+<li><b>A <code>Device:</code> or <code>Stage:</code> line above your edit</b> excludes the
+current device, so the whole block is skipped.</li>
+<li><b>An earlier <code>Channel:</code> line</b> is still narrowing the selection to a couple
+of channels.</li>
+<li><b>The file is not actually reached</b> by an <code>Include:</code> chain from
+<code>config.txt</code>.</li>
+<li><b>The line was rejected.</b> Run <code>Benchmark.exe --check</code>.</li>
+</ol>
+</section>
+
+<section id="s-repair">
+<h2 id="repair">Self-repair</h2>
+<p>Windows feature updates sometimes wipe the APO registration from an endpoint. Audio keeps
+playing, so nothing looks broken &mdash; your configuration simply stops applying.</p>
+<p>OmniAPO detects this and offers a one-click repair. It asks first and never repairs
+silently. Two places trigger the check:</p>
+<ul>
+<li><b>At logon</b>, through the background task.</li>
+<li><b>When the Editor starts.</b></li>
+</ul>
+<div class="note warn"><p><b>The background task is a component you can decline at install
+time</b>, listed as <i>Registration self-repair</i>. Declining it means the check only runs
+when the Editor starts, not at logon. If you skipped it and want it back, run
+<code>HealthAgent.exe -i</code> from the install folder.</p></div>
+<p>You can also run the check yourself at any time &mdash; <b>Check registration</b> in the
+Start menu, or <code>HealthAgent.exe</code> with no arguments. Started by hand it answers
+either way, including telling you that everything is in order.</p>
+<div class="note"><p>OmniAPO never contacts a server. There is no update check, no version
+ping and no telemetry of any kind; the binaries link no networking library at all. New
+versions are downloaded and installed by hand.</p></div>
+<p>Removed or unplugged hardware is deliberately not reported &mdash; otherwise every
+disconnected headset would raise a false alarm.</p>
+</section>
+
+<section id="s-trouble">
+<h2 id="trouble">Other symptoms</h2>
+<h3>Distortion or crackling</h3>
+<p>Almost always clipping from positive gain. Add or lower a <code>Preamp</code> until it stops.
+The rule of thumb is one <code>Preamp</code> near the top of the chain set to the negative of
+your largest boost.</p>
+<h3>A microphone went silent</h3>
+<p>The old bug behind this is fixed in this build. If it still happens, toggle the device off
+and on in the Device Selector and check whether a <code>Stage: capture</code> block is doing
+something unintended.</p>
+<h3>A plugin does not load</h3>
+<p>It must be 64-bit. Quote paths containing spaces. For a module with several effects, give a
+<code>CID</code> &mdash; without one you get the first class, which may not be the one you want.</p>
+<h3>Starting over</h3>
+<p>An empty <code>config.txt</code> is a valid, fully bypassed configuration. Rename your files
+aside rather than deleting them, confirm clean audio, then add them back one
+<code>Include:</code> at a time.</p>
+</section>
+
+<section id="s-whatsnew">
+<h2 id="whatsnew">What this build adds</h2>
+<p>Compared with stock Equalizer APO:</p>
+<ul>
+<li><b>VST3 plugin hosting</b> alongside the existing VST2 support, with class selection by
+GUID, state persistence and latency compensation.</li>
+<li><b>Renaming a device no longer breaks its configuration</b> &mdash; a <code>Device:</code>
+line carrying a matching endpoint GUID matches regardless of the name words.</li>
+<li><b>Disabling effects no longer silences capture devices</b> whose input and output channel
+counts differ.</li>
+<li><b>Device names with illegal filename characters</b> no longer break installation.</li>
+<li><b>Self-repair</b> for a wiped APO registration.</li>
+<li><b>A configuration checker</b> and this offline documentation.</li>
+</ul>
+<p>The build is compiled for AVX2 with 64-bit double-precision processing throughout.</p>
+</section>
+
+<section id="s-where">
+<h2 id="where">Where everything lives</h2>
+<table>
+<thead><tr><th>Path</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td><code>C:\Program&nbsp;Files\EqualizerAPO\config\</code></td><td>Every file the engine reads.</td></tr>
+<tr><td><code>config\config.txt</code></td><td>The root file. The engine always starts here.</td></tr>
+<tr><td><code>VSTPlugins\</code></td><td>Default folder for relative plugin paths.</td></tr>
+<tr><td><code>docs\</code></td><td>This guide, the README and the Configuration Reference.</td></tr>
+<tr><td><code>licenses\</code></td><td>Full licence text for every bundled component.</td></tr>
+<tr><td><code>%TEMP%\EqualizerAPO.log</code></td><td>The engine's log. <code>--check</code> reads the same diagnostics.</td></tr>
+</tbody></table>
+</section>
+
+<section id="s-credits">
+<h2 id="credits">Credits &amp; licence</h2>
+<p><b>OmniAPO</b> is a private 64-bit build derived from the double-precision fork of Equalizer
+APO. Equalizer APO was created by <b>Jonas Thedering</b> and is free software; OmniAPO would not
+exist without it.</p>
+<p>The combined work is distributed under the <b>GNU General Public License, version 3 or
+later</b>. Full licence texts ship in the <code>licenses\</code> folder alongside
+<code>NOTICE</code> and <code>CREDITS</code>. The display typeface is <b>Space Grotesk</b> by
+Florian Karsten, under the SIL Open Font License 1.1.</p>
+<p>VST is a registered trademark of Steinberg Media Technologies GmbH. This product is not
+affiliated with or endorsed by Steinberg.</p>
+</section>
+
+<footer>
+Guide &middot; OmniAPO 1.0.1 &middot; works offline &middot;
+see the Configuration Reference for every command in detail
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  var q=document.getElementById('q'), qn=document.getElementById('qn'),
+      nores=document.getElementById('nores'),
+      secs=[].slice.call(document.querySelectorAll('main section')),
+      links=[].slice.call(document.querySelectorAll('#toc a')),
+      grps=[].slice.call(document.querySelectorAll('#toc .grp'));
+
+  function clearMarks(el){
+    el.querySelectorAll('mark.hit').forEach(function(m){
+      m.parentNode.replaceChild(document.createTextNode(m.textContent),m); });
+    el.normalize();
+  }
+  function mark(el,term){
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+      var p=n.parentNode.nodeName;
+      if(p==='SCRIPT'||p==='STYLE'||p==='MARK')return NodeFilter.FILTER_REJECT;
+      return n.nodeValue.toLowerCase().indexOf(term)>-1
+        ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; }});
+    var hits=[],n; while(n=w.nextNode()) hits.push(n);
+    hits.forEach(function(node){
+      var txt=node.nodeValue, low=txt.toLowerCase(), frag=document.createDocumentFragment(), i=0, j;
+      while((j=low.indexOf(term,i))>-1){
+        if(j>i) frag.appendChild(document.createTextNode(txt.slice(i,j)));
+        var m=document.createElement('mark'); m.className='hit';
+        m.textContent=txt.substr(j,term.length); frag.appendChild(m);
+        i=j+term.length;
+      }
+      if(i<txt.length) frag.appendChild(document.createTextNode(txt.slice(i)));
+      node.parentNode.replaceChild(frag,node);
+    });
+  }
+  function apply(){
+    var term=q.value.trim().toLowerCase();
+    secs.forEach(clearMarks);
+    if(!term){
+      secs.forEach(function(s){s.classList.remove('hide')});
+      links.forEach(function(a){a.parentNode.classList.remove('hide')});
+      grps.forEach(function(g){g.classList.remove('hide')});
+      nores.style.display='none'; qn.textContent=''; return;
+    }
+    var shown=0, live={};
+    secs.forEach(function(s){
+      var hit=s.textContent.toLowerCase().indexOf(term)>-1;
+      s.classList.toggle('hide',!hit);
+      if(hit){ shown++; mark(s,term);
+        s.querySelectorAll('[id]').forEach(function(e){live[e.id]=1}); }
+    });
+    links.forEach(function(a){
+      a.parentNode.classList.toggle('hide',!live[a.getAttribute('href').slice(1)]);
+    });
+    grps.forEach(function(g){
+      var any=false,n=g.nextElementSibling;
+      while(n&&!n.classList.contains('grp')){
+        if(!n.classList.contains('hide')){any=true;break} n=n.nextElementSibling; }
+      g.classList.toggle('hide',!any);
+    });
+    nores.style.display=shown?'none':'block';
+    qn.textContent=shown+(shown===1?' section':' sections');
+  }
+  q.addEventListener('input',apply);
+  q.addEventListener('keydown',function(e){ if(e.key==='Escape'){q.value='';apply();q.blur()} });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q){e.preventDefault();q.focus()}
+  });
+
+  var targets=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))})
+                   .filter(Boolean);
+  function spy(){
+    var best=null,bt=-1e9;
+    targets.forEach(function(t){
+      var y=t.getBoundingClientRect().top-90;
+      if(y<=0&&y>bt){bt=y;best=t}
+    });
+    links.forEach(function(a){
+      a.classList.toggle('on', !!best && a.getAttribute('href')==='#'+best.id);
+    });
+  }
+  addEventListener('scroll',spy,{passive:true}); spy();
+})();
+</script>
+</body>
+</html>

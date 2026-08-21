@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configuration Reference &mdash; OmniAPO</title>
+<style>
+/* BEGIN GENERATED PALETTE (tools/brand/make_brand.py) - do not edit by hand.
+   Rewritten from tools/brand/omni_tokens.py on every run; edit the tokens. */
+:root{
+  --surface:#0C0C14; --panel:#23232F; --field:#1B1B26; --line:#2A2A31;
+  --text:#E9E8F2; --muted:#9C9AB2; --dim:#6E6D84;
+  --a:#6D31FA; --b:#B147FB; --c:#E15CFC; --accent:#B147FB;
+  --warn:#ECAA0B; --ok:#00C66D; --err:#F1383E;
+  --mono:"Cascadia Mono","Consolas","Courier New",monospace;
+  --sans:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+}
+/* END GENERATED PALETTE */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:1rem}
+body{margin:0; background:var(--surface); color:var(--text);
+     font:15px/1.65 var(--sans); -webkit-font-smoothing:antialiased}
+a{color:var(--b); text-decoration:none}
+a:hover{color:var(--a); text-decoration:underline}
+code,kbd{font-family:var(--mono); font-size:.91em}
+:not(pre)>code{background:var(--field); color:#D8D8E2; padding:.12em .4em;
+               border-radius:4px; border:1px solid var(--line); white-space:nowrap}
+
+/* ---------- shell ---------- */
+.wrap{display:grid; grid-template-columns:265px minmax(0,1fr); gap:0;
+      max-width:1320px; margin:0 auto}
+nav{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
+    padding:1.6rem 1rem 3rem 1.4rem; border-right:1px solid var(--line)}
+main{padding:2.4rem 2.6rem 6rem; min-width:0}
+
+/* ---------- brand ---------- */
+.brand{display:flex; align-items:center; gap:.7rem; margin-bottom:.35rem}
+.brand svg{flex:0 0 auto}
+.brand-t{font-weight:650; font-size:.95rem; letter-spacing:.01em; line-height:1.2}
+.brand-s{color:var(--dim); font-size:.72rem; font-family:var(--mono)}
+
+#q{width:100%; margin:1.1rem 0 .5rem; padding:.5rem .65rem; border-radius:7px;
+   background:var(--field); border:1px solid var(--line); color:var(--text);
+   font:13px var(--sans)}
+#q:focus{outline:none; border-color:var(--b)}
+#qn{color:var(--dim); font-size:.72rem; min-height:1.1em; margin-bottom:.4rem}
+
+nav ol{list-style:none; margin:0; padding:0}
+nav li a{display:block; padding:.24rem .55rem; border-radius:6px; color:var(--muted);
+         font-size:.855rem; border-left:2px solid transparent}
+nav li a:hover{background:var(--panel); color:var(--text); text-decoration:none}
+nav li a.on{color:var(--a); border-left-color:var(--a); background:var(--panel)}
+nav .sub a{padding-left:1.5rem; font-size:.8rem}
+nav .grp{color:var(--dim); font-size:.68rem; letter-spacing:.13em; text-transform:uppercase;
+         margin:1.15rem 0 .35rem .55rem; font-weight:600}
+nav li.hide,nav .grp.hide{display:none}
+
+/* ---------- headings ---------- */
+h1{font-size:1.85rem; line-height:1.2; margin:0 0 .35rem; font-weight:640; letter-spacing:-.01em}
+h2{font-size:1.28rem; margin:3.1rem 0 .9rem; padding-bottom:.45rem;
+   border-bottom:1px solid var(--line); font-weight:620; scroll-margin-top:1rem}
+h3{font-size:1.02rem; margin:2.1rem 0 .55rem; font-weight:620; scroll-margin-top:1rem}
+h2:first-of-type{margin-top:2.2rem}
+.lede{color:var(--muted); font-size:1.02rem; max-width:62ch}
+
+/* ---------- command blocks ---------- */
+.cmd{border:1px solid var(--line); border-radius:11px; background:var(--panel);
+     margin:1.5rem 0; overflow:hidden}
+.cmd>h3{margin:0; padding:.75rem 1.1rem; background:#1B1B21;
+        border-bottom:1px solid var(--line); font-family:var(--mono);
+        font-size:.95rem; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap}
+.cmd>h3 .kw{color:var(--a)}
+.cmd-b{padding:1.1rem}
+.cmd-b>:first-child{margin-top:0}
+.cmd-b>:last-child{margin-bottom:0}
+.tag{font:600 .62rem/1 var(--sans); letter-spacing:.09em; text-transform:uppercase;
+     padding:.28em .55em; border-radius:20px; border:1px solid}
+.tag.new{color:var(--c); border-color:#4A2E68; background:#221436}
+.tag.chg{color:var(--ok); border-color:#1E5C43; background:#0E2A20}
+
+pre{background:#08080B; border:1px solid var(--line); border-radius:9px;
+    padding:.85rem 1rem; overflow-x:auto; margin:.85rem 0; line-height:1.55}
+pre code{white-space:pre}
+.k{color:var(--a)} .n{color:var(--warn)} .s{color:#9CE8B4}
+.cm{color:var(--dim); font-style:italic}
+
+table{border-collapse:collapse; width:100%; margin:.9rem 0; font-size:.885rem;
+      display:block; overflow-x:auto}
+th,td{text-align:left; padding:.46rem .7rem; border-bottom:1px solid var(--line);
+      vertical-align:top}
+th{color:var(--muted); font-weight:600; font-size:.74rem; letter-spacing:.07em;
+   text-transform:uppercase; white-space:nowrap}
+td code{white-space:nowrap}
+tbody tr:hover{background:#1E1E25}
+
+.note{border-left:3px solid var(--b); background:#191922; padding:.7rem 1rem;
+      border-radius:0 8px 8px 0; margin:.9rem 0; font-size:.91rem}
+.note.warn{border-left-color:var(--warn); background:#1E1608}
+.note.tip{border-left-color:var(--ok); background:#0B1F18}
+.note b{color:var(--text)}
+.note p:first-child{margin-top:0} .note p:last-child{margin-bottom:0}
+
+dl{margin:.8rem 0} dt{font-family:var(--mono); color:var(--a); font-size:.88rem; margin-top:.7rem}
+dd{margin:.15rem 0 0 1.3rem; color:var(--muted); font-size:.92rem}
+
+ul,ol{padding-left:1.3rem} li{margin:.3rem 0}
+hr{border:0; border-top:1px solid var(--line); margin:2.6rem 0}
+footer{color:var(--dim); font-size:.83rem; margin-top:3.5rem;
+       border-top:1px solid var(--line); padding-top:1.2rem}
+.hit{background:#3A2E05; border-radius:3px; box-shadow:0 0 0 2px #3A2E05}
+section.hide{display:none}
+#nores{display:none; color:var(--muted); padding:2rem 0}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr}
+  nav{position:static; height:auto; border-right:0; border-bottom:1px solid var(--line)}
+  main{padding:1.6rem 1.2rem 4rem}
+}
+@media print{
+  :root{--surface:#fff;--panel:#fff;--field:#f4f5f9;--line:#ccc;--text:#111;
+        --muted:#444;--dim:#666;--a:#0A5C8A;--b:#14507F;--c:#6B2FA0}
+  nav,#q,#qn{display:none} .wrap{display:block} main{padding:0}
+  pre{background:#f7f8fc} section.hide{display:block!important}
+  h2{break-after:avoid} .cmd{break-inside:avoid; page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <div class="brand">
+    <!-- BEGIN GENERATED MARK (tools/brand/make_brand.py) - the product icon as a data URI; rewritten on every run. -->
+    <img src="data:image/png;base64,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" width="30" height="30" alt="" aria-hidden="true" style="display:block;border-radius:7px">
+    <!-- END GENERATED MARK -->
+    <div>
+      <div class="brand-t">Configuration Reference</div>
+      <div class="brand-s">OmniAPO &middot; 1.0.1</div>
+    </div>
+  </div>
+
+  <input id="q" type="search" placeholder="Filter (press /)" autocomplete="off" spellcheck="false">
+  <div id="qn"></div>
+
+  <ol id="toc">
+    <li class="grp">Start here</li>
+    <li><a href="#intro">What this is</a></li>
+    <li><a href="#files">Where the files live</a></li>
+    <li><a href="#howread">How a config is read</a></li>
+    <li><a href="#channels">Channel names</a></li>
+
+    <li class="grp">Gain &amp; equalisation</li>
+    <li><a href="#preamp">Preamp</a></li>
+    <li><a href="#filter">Filter</a></li>
+    <li><a href="#filter-iir">Filter ON IIR</a></li>
+    <li><a href="#graphiceq">GraphicEQ</a></li>
+    <li><a href="#loudness">LoudnessCorrection</a></li>
+
+    <li class="grp">Routing &amp; time</li>
+    <li><a href="#channel">Channel</a></li>
+    <li><a href="#copy">Copy</a></li>
+    <li><a href="#delay">Delay</a></li>
+    <li><a href="#convolution">Convolution</a></li>
+
+    <li class="grp">Plugins</li>
+    <li><a href="#vst3">VST3Plugin</a></li>
+    <li><a href="#vst2">VSTPlugin</a></li>
+
+    <li class="grp">Conditions &amp; structure</li>
+    <li><a href="#device">Device</a></li>
+    <li><a href="#stage">Stage</a></li>
+    <li><a href="#if">If / ElseIf / Else / EndIf</a></li>
+    <li><a href="#eval">Eval</a></li>
+    <li><a href="#include">Include</a></li>
+    <li><a href="#expr">Expression language</a></li>
+
+    <li class="grp">Practice</li>
+    <li><a href="#different">What differs in this build</a></li>
+    <li><a href="#recipes">Recipes</a></li>
+    <li><a href="#tricks">Hints &amp; tricks</a></li>
+    <li><a href="#trouble">Troubleshooting</a></li>
+    <li><a href="#tools">Tools &amp; logging</a></li>
+    <li><a href="#credits">Credits &amp; licence</a></li>
+  </ol>
+</nav>
+
+<main>
+<h1>Configuration Reference</h1>
+<p class="lede">Every command the audio engine understands, written against the source of
+<b>OmniAPO 1.0.1</b> &mdash; the build installed on this
+machine. Works offline; nothing on this page loads from the internet.</p>
+
+<div id="nores">No section matches that filter.</div>
+
+<!-- ============================================================ -->
+<section id="s-intro">
+<h2 id="intro">What this is</h2>
+<p>OmniAPO is an <i>Audio Processing Object</i>: Windows loads it inside
+<code>audiodg.exe</code> and hands it every sample on its way to (or from) a device. There is no
+server to start and nothing to keep running &mdash; if the device is enabled in the Device
+Selector, the engine is already in the signal path.</p>
+
+<div class="note"><p><b>Why the folder still says EqualizerAPO.</b> OmniAPO is a private build of
+Equalizer APO, and it deliberately keeps the original install path
+(<code>C:\Program&nbsp;Files\EqualizerAPO</code>) and registry key. Peace, HeSuVi and other
+front-ends locate the engine through exactly those, so renaming them would leave every one of
+those tools unable to find it. The new name is the product; the old name is the plumbing.</p></div>
+
+<p>Its entire behaviour comes from plain text files. You edit a file, save it, and the change
+is live within about a second: the engine watches the config directory and reloads on its own.
+No reboot, no restarting applications, no toggling the device.</p>
+
+<div class="note tip"><p><b>Two ways to edit.</b> The bundled <b>Configuration Editor</b> gives
+you a graphical view with a live frequency response, and it writes exactly the syntax on this
+page. Anything it can do, you can also type by hand in Notepad. Text wins for version control,
+comments and conditional blocks; the Editor wins for dialling an EQ curve by ear.</p>
+<p><b>If you edit by hand, save as UTF-8.</b> In Notepad that is the encoding called
+<i>UTF-8</i> &mdash; not <i>Unicode</i>, which is UTF-16 and produces a file the engine cannot
+read. Since 1.0.0 a UTF-16 file is refused with a message in the log and in
+<b>Check configuration</b> rather than loading as nothing; a UTF-8 file with a byte-order mark
+is accepted.</p></div>
+
+<div class="note warn"><p><b>Before the first big edit, copy your config directory somewhere
+safe.</b> An empty or malformed file will not damage anything &mdash; the worst case is that
+processing stops and unparsable lines are logged &mdash; but a good backup turns "what did I
+change?" into a five-second question.</p></div>
+</section>
+
+<section id="s-files">
+<h2 id="files">Where the files live</h2>
+<table>
+<thead><tr><th>Path</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td><code>C:\Program&nbsp;Files\EqualizerAPO\config\</code></td><td>The config directory. Everything the engine reads lives here.</td></tr>
+<tr><td><code>config\config.txt</code></td><td>The root file. The engine always starts here.</td></tr>
+<tr><td><code>config\*.txt</code></td><td>Your own files, pulled in with <code>Include:</code>.</td></tr>
+<tr><td><code>VSTPlugins\</code></td><td>Default folder for relative plugin paths (VST2 and VST3).</td></tr>
+<tr><td><code>Editor.exe</code></td><td>Configuration Editor.</td></tr>
+<tr><td><code>DeviceSelector.exe</code></td><td>Chooses which endpoints the APO attaches to. Needs elevation.</td></tr>
+<tr><td><code>Benchmark.exe</code></td><td>Offline harness &mdash; runs your config against a file, no audio device involved.</td></tr>
+<tr><td><code>HKLM\SOFTWARE\EqualizerAPO</code></td><td><code>InstallPath</code> and <code>ConfigPath</code>. Other tools discover the install through these.</td></tr>
+</tbody></table>
+
+<div class="note"><p><b>Why <code>config.txt</code> may look almost empty.</b> A common and healthy
+layout is a root file containing only <code>Include:</code> lines, one per tool or concern.
+That way a GUI which owns one file can rewrite it freely without touching anything else.
+If Peace or another front-end is installed, expect it to own its own file.</p></div>
+</section>
+
+<section id="s-howread">
+<h2 id="howread">How a configuration is read</h2>
+<p>The engine reads the file top to bottom and builds a <b>chain</b> of filters in that order.
+Order is the whole model: a <code>Preamp</code> after a limiter does something different from a
+<code>Preamp</code> before it.</p>
+
+<h3>Line format</h3>
+<pre><code><span class="k">Command</span>: parameters</code></pre>
+<p>One command per line. The command name is case-sensitive; everything after the colon is the
+parameter text for that command.</p>
+
+<dl>
+<dt>Comments</dt><dd>A line whose first non-blank character is <code>#</code> is ignored. So are blank lines.</dd>
+<dt>Unknown commands</dt><dd>Skipped <b>silently</b> &mdash; nothing is logged. They do not stop the rest of the file, but a typo in a command name leaves no trace at all, so check spelling first when a line seems to be ignored.</dd>
+<dt>Decimal marks</dt><dd>Most numeric commands accept a comma as well as a period, so configs written on a German locale keep working. <code>Preamp: -3,5 dB</code> is valid.</dd>
+</dl>
+
+<h3>What happens on save</h3>
+<ol>
+<li>The engine notices the change and re-reads <code>config.txt</code> from the top.</li>
+<li>Conditions (<code>Device</code>, <code>Stage</code>, <code>If</code>) are evaluated <b>once, at load time</b>, for the device being configured.</li>
+<li>A fresh filter chain is built and swapped in.</li>
+</ol>
+<p>Because conditions are resolved at load time, each audio device ends up with its own chain
+built from the same files. A single set of files can serve headphones, speakers and a
+microphone without interfering.</p>
+
+<div class="note warn"><p><b>Runtime state resets on reload.</b> Anything a filter accumulated
+&mdash; delay lines, convolution tails, plugin internals &mdash; starts fresh. Saving during
+playback can produce a brief click. That is expected, not a fault.</p></div>
+</section>
+
+<section id="s-channels">
+<h2 id="channels">Channel names</h2>
+<p>Wherever a command takes channels, these names are accepted (case-insensitive; the parser
+upper-cases them). You can always use a <b>1-based number</b> instead, which is the only option
+for exotic layouts.</p>
+<table>
+<thead><tr><th>Name</th><th>Speaker</th><th>Name</th><th>Speaker</th></tr></thead>
+<tbody>
+<tr><td><code>L</code></td><td>Front left</td><td><code>RL</code></td><td>Back left</td></tr>
+<tr><td><code>R</code></td><td>Front right</td><td><code>RR</code></td><td>Back right</td></tr>
+<tr><td><code>C</code></td><td>Front centre</td><td><code>RC</code></td><td>Back centre</td></tr>
+<tr><td><code>LFE</code></td><td>Subwoofer</td><td><code>SL</code></td><td>Side left</td></tr>
+<tr><td><code>SUB</code></td><td>Alias for <code>LFE</code></td><td><code>SR</code></td><td>Side right</td></tr>
+</tbody></table>
+<div class="note tip"><p><b>Side/back are interchangeable when only one exists.</b> If a layout has
+side channels but you wrote <code>RL</code>/<code>RR</code>, the engine falls back to
+<code>SL</code>/<code>SR</code> and vice versa. This is why 5.1 configs written for one machine
+usually just work on another.</p></div>
+</section>
+
+<!-- ============================================================ -->
+<h2 id="gain-eq" style="border:0;margin-bottom:0">Gain &amp; equalisation</h2>
+
+<section id="s-preamp">
+<div class="cmd"><h3 id="preamp"><span class="kw">Preamp:</span> &lt;gain&gt; dB</h3>
+<div class="cmd-b">
+<p>Applies a flat gain to every channel currently selected.</p>
+<pre><code><span class="k">Preamp</span>: <span class="n">-6</span> dB
+<span class="k">Preamp</span>: <span class="n">-3,5</span> dB   <span class="cm"># comma is fine</span></code></pre>
+<div class="note"><p><b>The unit is optional here, unlike elsewhere.</b> <code>Preamp: -6</code>
+applies &minus;6&nbsp;dB just as <code>Preamp: -6 dB</code> does &mdash; the value is read first and
+the <code>dB</code> that follows is not required. Write it anyway for consistency with every other
+command, but a missing unit is not what is wrong if a <code>Preamp</code> line misbehaves.
+Only a line with no readable number at all is rejected, and that is reported.</p></div>
+<div class="note tip"><p><b>Always leave headroom.</b> Any positive EQ gain can push a signal past
+full scale, where it clips hard. The rule of thumb is one <code>Preamp</code> near the top of the
+chain, set to the negative of your largest boost. Boost <code>+6 dB</code> anywhere, start with
+<code>Preamp: -6 dB</code>.</p></div>
+</div></div>
+</section>
+
+<section id="s-filter">
+<div class="cmd"><h3 id="filter"><span class="kw">Filter:</span> ON &lt;type&gt; Fc &lt;f&gt; Hz [Gain &lt;g&gt; dB] [Q &lt;q&gt; | BW Oct &lt;b&gt; | &lt;s&gt; dB]</h3>
+<div class="cmd-b">
+<p>One biquad section &mdash; the workhorse. The command may carry a trailing number
+(<code>Filter 1:</code>, <code>Filter 2:</code>) so exported files stay readable; the number is
+decorative and is not used for ordering.</p>
+
+<table>
+<thead><tr><th>Type</th><th>Does</th><th>Gain</th><th>Width</th></tr></thead>
+<tbody>
+<tr><td><code>PK</code> <code>PEQ</code> <code>Modal</code></td><td>Peaking / parametric bell</td><td>required</td><td><b>required</b></td></tr>
+<tr><td><code>LS</code> <code>LSC</code></td><td>Low shelf</td><td>required</td><td>optional</td></tr>
+<tr><td><code>HS</code> <code>HSC</code></td><td>High shelf</td><td>required</td><td>optional</td></tr>
+<tr><td><code>LP</code> <code>LPQ</code></td><td>Low pass</td><td>ignored</td><td>optional</td></tr>
+<tr><td><code>HP</code> <code>HPQ</code></td><td>High pass</td><td>ignored</td><td>optional</td></tr>
+<tr><td><code>BP</code></td><td>Band pass</td><td>ignored</td><td>optional</td></tr>
+<tr><td><code>NO</code></td><td>Notch</td><td>ignored</td><td>optional</td></tr>
+<tr><td><code>AP</code></td><td>All pass (phase only)</td><td>ignored</td><td><b>required</b></td></tr>
+<tr><td><code>None</code></td><td>Disabled row &mdash; accepted and skipped silently</td><td>&mdash;</td><td>&mdash;</td></tr>
+</tbody></table>
+
+<pre><code><span class="k">Filter</span>: ON PK Fc <span class="n">1000</span> Hz Gain <span class="n">-4</span> dB Q <span class="n">1.41</span>
+<span class="k">Filter</span>: ON LS Fc <span class="n">120</span> Hz Gain <span class="n">3</span> dB
+<span class="k">Filter</span>: ON HP Fc <span class="n">30</span> Hz
+<span class="k">Filter</span>: ON PK Fc <span class="n">3150</span> Hz Gain <span class="n">-2.5</span> dB BW Oct <span class="n">0.5</span>
+<span class="k">Filter</span>: ON None</code></pre>
+
+<h3 style="margin-top:1.4rem">Width, three ways</h3>
+<p>Only one takes effect; the last recognised form on the line wins.</p>
+<dl>
+<dt>Q &lt;number&gt;</dt><dd>Classic quality factor. Higher is narrower.</dd>
+<dt>BW Oct &lt;number&gt;</dt><dd>Bandwidth in octaves. <b>Ignored for shelves.</b></dd>
+<dt>&lt;number&gt; dB</dt><dd>Shelf slope, at the very start of the parameter text. <b>Shelves only</b>; internally divided by 12, so <code>12 dB</code> is the maximum slope.</dd>
+</dl>
+
+<div class="note"><p><b>Omitting the width is not an error &mdash; it picks a default.</b> These are
+compiled in and worth knowing, because a filter you thought was neutral is not:</p>
+<table style="margin-bottom:0">
+<thead><tr><th>Type</th><th>Default when no width is given</th></tr></thead>
+<tbody>
+<tr><td><code>LP</code> <code>HP</code> <code>BP</code></td><td>Q = 0.7071 (&frac12;&radic;2, Butterworth)</td></tr>
+<tr><td><code>LS</code> <code>HS</code></td><td>S = 0.9/12 &mdash; matched to Room EQ Wizard</td></tr>
+<tr><td><code>NO</code></td><td>Q = 30 &mdash; deliberately very narrow</td></tr>
+<tr><td><code>PK</code> <code>AP</code></td><td><b>none</b> &mdash; the line is rejected and logged</td></tr>
+</tbody></table></div>
+
+<div class="note warn"><p><b><code>LS</code> vs <code>LSC</code> is not cosmetic.</b> The trailing
+<code>C</code> means <code>Fc</code> is the true <b>corner</b> frequency; without it, the frequency
+is interpreted as the shelf's <b>centre</b> (the half-gain point). The same numbers therefore give
+two different curves. Room EQ Wizard emits the <code>C</code> forms; keep whatever your measurement
+tool produced rather than converting by hand.</p></div>
+
+<div class="note tip"><p><b>Cascade for steeper slopes.</b> One biquad rolls off at 12&nbsp;dB/octave.
+Two identical <code>HP</code> lines give 24&nbsp;dB/octave, three give 36. For a proper
+Linkwitz-Riley 24&nbsp;dB crossover, use two sections both at Q&nbsp;=&nbsp;0.7071.</p></div>
+</div></div>
+</section>
+
+<section id="s-filter-iir">
+<div class="cmd"><h3 id="filter-iir"><span class="kw">Filter:</span> ON IIR Order &lt;n&gt; Coefficients &lt;b0..bn a0..an&gt;</h3>
+<div class="cmd-b">
+<p>Raw IIR section for coefficients produced elsewhere &mdash; a filter designer, MATLAB, your own
+script. Order must be at least 1, and you must supply exactly <code>(order + 1) &times; 2</code>
+numbers: all <code>b</code> (feed-forward) first, then all <code>a</code> (feedback).</p>
+<pre><code><span class="cm"># order 2 -&gt; 6 coefficients: b0 b1 b2 a0 a1 a2</span>
+<span class="k">Filter</span>: ON IIR Order <span class="n">2</span> Coefficients <span class="n">0.998 -1.996 0.998 1.0 -1.996 0.996</span></code></pre>
+<div class="note warn"><p>A miscounted coefficient list is rejected with the expected and actual
+counts in the log. An unstable set is <i>not</i> rejected &mdash; the engine will happily run a
+filter that blows up. Verify stability before you route it to speakers, and keep the volume
+down the first time.</p></div>
+</div></div>
+</section>
+
+<section id="s-graphiceq">
+<div class="cmd"><h3 id="graphiceq"><span class="kw">GraphicEQ:</span> &lt;freq&gt; &lt;gain&gt;; &lt;freq&gt; &lt;gain&gt;; &hellip;</h3>
+<div class="cmd-b">
+<p>An arbitrary response curve given as frequency/gain points, realised with a 16384-tap FIR.
+This is what AutoEq and most headphone-correction projects export.</p>
+<pre><code><span class="k">GraphicEQ</span>: <span class="n">25</span> <span class="n">-1.5</span>; <span class="n">40</span> <span class="n">-1.2</span>; <span class="n">63</span> <span class="n">-0.8</span>; <span class="n">100</span> <span class="n">0</span>; <span class="n">160</span> <span class="n">0.9</span>; <span class="n">250</span> <span class="n">1.4</span></code></pre>
+<div class="note"><p><b>The separators are decoration.</b> The parser simply pulls every number out
+of the line and pairs them up &mdash; first is frequency, second is gain, and so on. Semicolons,
+commas and extra spaces are all equally fine. A dangling odd number at the end is dropped.
+Points are sorted by frequency for you, so they need not be in order.</p></div>
+<div class="note warn"><p><b>One decimal-mark rule to know.</b> Commas are converted to periods
+<i>only if the line contains no period at all</i>. Mixing the two styles on one line
+(<code>25 -1.5; 40 -1,2</code>) parses the comma as a separator, so <code>-1</code> and
+<code>2</code> become two different numbers and the whole curve shifts. Pick one style per line.</p></div>
+<div class="note tip"><p>A 16384-tap FIR is the most expensive thing in this reference. It is
+perfectly affordable on a modern desktop, but if you are stacking several of them on many
+devices, <code>Benchmark.exe</code> will tell you the real cost.</p></div>
+</div></div>
+</section>
+
+<section id="s-loudness">
+<div class="cmd"><h3 id="loudness"><span class="kw">LoudnessCorrection:</span> State &lt;0|1&gt; ReferenceLevel &lt;dB&gt; ReferenceOffset &lt;dB&gt; Attenuation &lt;0..1&gt;</h3>
+<div class="cmd-b">
+<p>Equal-loudness compensation: as you turn the volume down, bass and treble are lifted to keep
+the perceived balance, following the ISO 226 contours.</p>
+<pre><code><span class="k">LoudnessCorrection</span>: State <span class="n">1</span> ReferenceLevel <span class="n">80</span> ReferenceOffset <span class="n">0</span> Attenuation <span class="n">1.0</span></code></pre>
+<dl>
+<dt>State</dt><dd><code>0</code> or <code>1</code> &mdash; off or on.</dd>
+<dt>ReferenceLevel</dt><dd>Integer dB SPL at which your system is considered "flat". 80&ndash;85 is typical.</dd>
+<dt>ReferenceOffset</dt><dd>Integer dB trim if your calibration differs from the assumption.</dd>
+<dt>Attenuation</dt><dd><code>0.0</code>&ndash;<code>1.0</code>: how much of the correction to apply. Accepts a comma decimal mark.</dd>
+</dl>
+<div class="note warn"><p>All four keys are required and each is validated against a strict pattern
+&mdash; <code>ReferenceLevel 80.5</code> is <b>not</b> accepted (integers only). If any key fails,
+the whole filter is dropped.</p></div>
+</div></div>
+</section>
+
+<!-- ============================================================ -->
+<h2 id="routing" style="border:0;margin-bottom:0">Routing &amp; time</h2>
+
+<section id="s-channel">
+<div class="cmd"><h3 id="channel"><span class="kw">Channel:</span> &lt;names&gt;</h3>
+<div class="cmd-b">
+<p>Selects which channels the <b>following</b> commands apply to, until the next
+<code>Channel:</code> line. This is modal &mdash; it changes state rather than processing audio.</p>
+<pre><code><span class="k">Channel</span>: L R
+<span class="k">Filter</span>: ON PK Fc <span class="n">2000</span> Hz Gain <span class="n">-3</span> dB Q <span class="n">2</span>   <span class="cm"># fronts only</span>
+
+<span class="k">Channel</span>: LFE
+<span class="k">Filter</span>: ON LP Fc <span class="n">80</span> Hz                     <span class="cm"># sub only</span>
+
+<span class="k">Channel</span>: all
+<span class="k">Preamp</span>: <span class="n">-3</span> dB                                <span class="cm"># everything again</span></code></pre>
+<div class="note warn"><p><b>It stays in effect.</b> Forgetting to switch back to
+<code>Channel: all</code> is the single most common configuration mistake &mdash; the rest of the
+file silently applies to two channels. If a change "does nothing" on some content, look upward for
+a stray <code>Channel:</code> line.</p></div>
+</div></div>
+</section>
+
+<section id="s-copy">
+<div class="cmd"><h3 id="copy"><span class="kw">Copy:</span> &lt;target&gt;=&lt;source&gt; [&lt;target&gt;=&lt;source&gt; &hellip;]</h3>
+<div class="cmd-b">
+<p>A full mixing matrix: build each target channel from a weighted sum of sources. All
+assignments on one line happen <b>simultaneously</b> from the pre-<code>Copy</code> signal, so
+swapping channels needs no temporary.</p>
+<pre><code><span class="k">Copy</span>: L=R R=L                       <span class="cm"># swap, no temp needed</span>
+<span class="k">Copy</span>: C=0.5*L+0.5*R                 <span class="cm"># derive a centre</span>
+<span class="k">Copy</span>: L=L+-3dB*R                    <span class="cm"># mix in R at -3 dB</span>
+<span class="k">Copy</span>: RL=0 RR=0                     <span class="cm"># mute the rears</span></code></pre>
+<dl>
+<dt>Plain factor</dt><dd><code>0.5*L</code> &mdash; a linear multiplier.</dd>
+<dt>Decibel factor</dt><dd>A factor ending in <code>dB</code>: <code>-3dB*R</code>.</dd>
+<dt>Silence</dt><dd><code>0</code> on its own.</dd>
+</dl>
+<div class="note warn"><p><b>A bare whole number is read as a channel, not a gain.</b> The rule is
+literal: a lone token counts as a factor only if it is exactly <code>0</code> or contains a period.
+So <code>Copy: L=2</code> means "take channel&nbsp;2", <i>not</i> "double L". Write
+<code>Copy: L=2.0*L</code> when you mean gain.</p></div>
+<div class="note tip"><p>Targets beyond the current channel count are created on demand, which is how
+upmixing works. Remember that summing two correlated channels at full scale adds up to 6&nbsp;dB
+&mdash; leave headroom.</p></div>
+</div></div>
+</section>
+
+<section id="s-delay">
+<div class="cmd"><h3 id="delay"><span class="kw">Delay:</span> &lt;amount&gt; ms | &lt;amount&gt; samples</h3>
+<div class="cmd-b">
+<p>Delays the selected channels. Combine with <code>Channel:</code> to time-align drivers or to
+compensate a subwoofer's position.</p>
+<pre><code><span class="k">Channel</span>: LFE
+<span class="k">Delay</span>: <span class="n">6</span> ms
+<span class="k">Channel</span>: all
+<span class="k">Delay</span>: <span class="n">128</span> samples</code></pre>
+<div class="note warn"><p><b>The unit is mandatory and only <code>ms</code> or <code>samples</code>
+are recognised.</b> A negative value, or any other unit, is silently ignored &mdash; the line does
+nothing at all. There is no way to advance a channel; delay the <i>other</i> channels instead.</p></div>
+<p>Roughly 2.9&nbsp;ms per metre of air, so 1&nbsp;ms &asymp; 34&nbsp;cm of speaker distance.</p>
+</div></div>
+</section>
+
+<section id="s-convolution">
+<div class="cmd"><h3 id="convolution"><span class="kw">Convolution:</span> &lt;impulse-response file&gt;</h3>
+<div class="cmd-b">
+<p>Convolves with an impulse response &mdash; room correction, headphone HRTFs, speaker cabinets,
+reverb. Any format libsndfile reads works (WAV, FLAC, AIFF&hellip;).</p>
+<pre><code><span class="k">Convolution</span>: <span class="s">room-correction.wav</span>
+<span class="k">Convolution</span>: <span class="s">C:\IRs\hall.wav</span></code></pre>
+<div class="note"><p><b>Relative paths resolve against the folder of the file containing the
+line</b> &mdash; not the config root. A <code>Convolution:</code> inside
+<code>config\HeSuVi\hesuvi.txt</code> looks in <code>config\HeSuVi\</code>. This is what lets
+preset packs ship as a self-contained folder.</p></div>
+<div class="note tip"><p>The IR's channel count decides the behaviour: mono applies the same
+response everywhere, and a matching multi-channel IR applies per-channel responses. True
+stereo/binaural sets use a 4-channel IR. Sample rate is converted if needed, but an IR recorded at
+your device's rate avoids that step.</p></div>
+</div></div>
+</section>
+
+<!-- ============================================================ -->
+<h2 id="plugins" style="border:0;margin-bottom:0">Plugins</h2>
+
+<section id="s-vst3">
+<div class="cmd"><h3 id="vst3"><span class="kw">VST3Plugin:</span> Library &lt;path&gt; [CID &lt;guid&gt; | ClassIndex &lt;n&gt;] [ChunkData "&lt;base64&gt;"] [#&lt;id&gt; &lt;value&gt; &hellip;] <span class="tag new">This build</span></h3>
+<div class="cmd-b">
+<p>Hosts a VST3 effect inside the audio chain. This command does not exist in stock Equalizer APO
+&mdash; it was added in this build, alongside the older VST2 support.</p>
+<pre><code><span class="cm"># simplest case: a plugin with one effect class</span>
+<span class="k">VST3Plugin</span>: Library <span class="s">LoudMax.vst3</span>
+
+<span class="cm"># pick one effect out of a multi-effect module, and restore its state</span>
+<span class="k">VST3Plugin</span>: Library <span class="s">"C:\Program Files\Common Files\VST3\Airwindows Consolidated.vst3"</span> \
+             CID <span class="s">{B2C1F0A4-1234-5678-9ABC-DEF012345678}</span> ChunkData <span class="s">"EAPOVST3STATE2..."</span></code></pre>
+<dl>
+<dt>Library</dt><dd><b>Required.</b> A <code>.vst3</code> file or bundle folder. Relative paths resolve against <code>&lt;InstallPath&gt;\VSTPlugins</code>. Quote paths containing spaces.</dd>
+<dt>CID</dt><dd>The effect class GUID, <code>{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}</code>. <b>Prefer this</b> for any module with more than one effect.</dd>
+<dt>ClassIndex</dt><dd>Positional fallback. Works, but silently points at a different effect if the vendor reorders classes in an update.</dd>
+<dt>ChunkData</dt><dd>Base64 state written by the Editor &mdash; component state, controller state and parameters in one envelope.</dd>
+<dt>#&lt;id&gt; &lt;value&gt;</dt><dd>One normalised parameter (0.0&ndash;1.0) by numeric id. Repeatable.</dd>
+</dl>
+<div class="note tip"><p><b>Let the Editor write these lines.</b> It enumerates the effect classes
+inside a module, shows the plugin's own interface, and emits the correct <code>CID</code> plus a
+<code>ChunkData</code> blob. Getting a GUID and a base64 state right by hand is not a good use of
+an evening.</p></div>
+<div class="note"><p><b>Latency is compensated automatically.</b> The host reads the plugin's
+reported latency and inserts matching delay on the untouched channels. One boundary worth knowing:
+if a plugin changes its latency while running &mdash; LoudMax's ISP switch moves 55&nbsp;&rarr;&nbsp;61
+samples &mdash; the new value is picked up at the <b>next config reload</b>, not mid-stream. Re-save
+the file after toggling such an option.</p></div>
+<div class="note warn"><p><b>A crashing plugin will not take your audio down.</b> Plugin calls run
+inside structured-exception guards, and a plugin that faults is disabled rather than allowed to kill
+<code>audiodg.exe</code>. This is a safety net, not a licence to run unstable plugins &mdash; test
+new ones at low volume.</p></div>
+<p>Unrecognised keys are reported in the log and skipped; the engine never guesses at what you
+meant.</p>
+</div></div>
+</section>
+
+<section id="s-vst2">
+<div class="cmd"><h3 id="vst2"><span class="kw">VSTPlugin:</span> Library &lt;path&gt; [ChunkData "&lt;base64&gt;"] [&lt;name&gt; &lt;value&gt; &hellip;]</h3>
+<div class="cmd-b">
+<p>The original VST2 host, unchanged. Relative paths resolve against the default plugin folder.</p>
+<pre><code><span class="k">VSTPlugin</span>: Library <span class="s">"Some Plugin.dll"</span> ChunkData <span class="s">"..."</span></code></pre>
+<div class="note"><p>Prefer <code>VST3Plugin</code> for anything available in both formats: the VST2
+SDK has been withdrawn by Steinberg, and VST3 is where plugin development actually happens now.</p></div>
+</div></div>
+</section>
+
+<!-- ============================================================ -->
+<h2 id="conditions" style="border:0;margin-bottom:0">Conditions &amp; structure</h2>
+
+<section id="s-device">
+<div class="cmd"><h3 id="device"><span class="kw">Device:</span> &lt;pattern&gt;[; &lt;pattern&gt; &hellip;] <span class="tag chg">Improved</span></h3>
+<div class="cmd-b">
+<p>Everything after this line applies only when the device being configured matches. Semicolons
+separate alternatives; <code>Device: all</code> re-enables everything.</p>
+<pre><code><span class="k">Device</span>: Speakers Realtek
+<span class="k">Preamp</span>: <span class="n">-4</span> dB
+
+<span class="k">Device</span>: Headphones; Kopfh&ouml;rer          <span class="cm"># either alternative matches</span>
+<span class="k">Convolution</span>: <span class="s">hrtf.wav</span>
+
+<span class="k">Device</span>: all
+<span class="k">Filter</span>: ON HP Fc <span class="n">20</span> Hz</code></pre>
+<p>Within one alternative, every word must appear in the device's description (connection name,
+device name and endpoint GUID concatenated). Matching is case-insensitive and word order does not
+matter.</p>
+<div class="note tip"><p><b>Changed in this build &mdash; renaming a device no longer breaks your
+config.</b> Previously an alternative had to match <i>every</i> word <b>and</b> the GUID, so renaming
+a device in Windows Sound settings silently disabled the whole block. Now, <b>if an alternative
+contains an endpoint GUID and that GUID matches, the alternative matches</b> &mdash; the name words
+are no longer required. Patterns without a GUID behave exactly as before, and nothing that used to
+match can now fail.</p></div>
+<div class="note"><p>Get the exact string from the Configuration Editor's device dropdown, which
+writes the canonical form <code>Device: &lt;connection&gt; &lt;name&gt; {guid}</code>. Because of the
+change above, that line is now rename-proof &mdash; it is the form worth standardising on.</p></div>
+</div></div>
+</section>
+
+<section id="s-stage">
+<div class="cmd"><h3 id="stage"><span class="kw">Stage:</span> pre-mix | post-mix | capture</h3>
+<div class="cmd-b">
+<p>Restricts the following lines to one point in the Windows audio pipeline. Several stages may be
+listed on one line.</p>
+<dl>
+<dt>pre-mix</dt><dd>Per-application, before Windows mixes streams together. Use it to treat one app differently.</dd>
+<dt>post-mix</dt><dd>After the mix, on the final device stream. This is where most EQ belongs.</dd>
+<dt>capture</dt><dd>Recording devices &mdash; microphones, line inputs, loopback.</dd>
+</dl>
+<pre><code><span class="k">Stage</span>: capture
+<span class="k">Filter</span>: ON HP Fc <span class="n">80</span> Hz        <span class="cm"># rumble filter on the mic</span>
+
+<span class="k">Stage</span>: post-mix
+<span class="k">Preamp</span>: <span class="n">-3</span> dB</code></pre>
+<div class="note"><p>With no <code>Stage</code> line, lines apply to capture devices, to post-mix, and
+to pre-mix only when no post-mix APO is installed &mdash; so a plain config is not silently applied
+twice on playback devices.</p></div>
+</div></div>
+</section>
+
+<section id="s-if">
+<div class="cmd"><h3 id="if"><span class="kw">If:</span> &lt;expr&gt; &nbsp;<span class="kw">ElseIf:</span> &nbsp;<span class="kw">Else:</span> &nbsp;<span class="kw">EndIf:</span></h3>
+<div class="cmd-b">
+<p>Conditional blocks, evaluated once at load time. Nesting is allowed.</p>
+<pre><code><span class="k">If</span>: outputChannelCount &gt;= <span class="n">6</span>
+  <span class="k">Copy</span>: C=<span class="n">0.5</span>*L+<span class="n">0.5</span>*R
+<span class="k">ElseIf</span>: outputChannelCount == <span class="n">2</span>
+  <span class="k">Preamp</span>: <span class="n">-2</span> dB
+<span class="k">Else</span>:
+  <span class="k">Preamp</span>: <span class="n">0</span> dB
+<span class="k">EndIf</span>:</code></pre>
+<div class="note warn"><p><code>Else:</code> and <code>EndIf:</code> keep their colons &mdash; they
+are commands like any other, just without parameters. Omitting the colon makes them unknown commands
+that are skipped, which leaves the block open and produces very confusing results.</p></div>
+</div></div>
+</section>
+
+<section id="s-eval">
+<div class="cmd"><h3 id="eval"><span class="kw">Eval:</span> &lt;expression&gt;</h3>
+<div class="cmd-b">
+<p>Evaluates an expression for its side effect &mdash; typically defining a variable that later
+lines reuse.</p>
+<pre><code><span class="k">Eval</span>: nyquist = sampleRate / <span class="n">2</span>
+<span class="k">Eval</span>: house = readRegDWORD(<span class="s">"HKCU\\Software\\MyTools"</span>, <span class="s">"HouseCurve"</span>)</code></pre>
+</div></div>
+</section>
+
+<section id="s-include">
+<div class="cmd"><h3 id="include"><span class="kw">Include:</span> &lt;file&gt;</h3>
+<div class="cmd-b">
+<p>Reads another file at this point, as if pasted inline.</p>
+<pre><code><span class="k">Include</span>: <span class="s">peace.txt</span>
+<span class="k">Include</span>: <span class="s">HeSuVi\hesuvi.txt</span>
+<span class="k">Include</span>: <span class="s">presets\night-mode.txt</span></code></pre>
+<div class="note"><p><b>Relative paths resolve against the including file's own folder</b>, so nested
+include trees stay portable. Recursion is capped at 100 levels; beyond that the include is skipped
+and logged, which makes an accidental include loop annoying rather than fatal.</p></div>
+<div class="note tip"><p><b>The best structural habit in this whole reference:</b> give every tool
+and every concern its own file, and keep <code>config.txt</code> as nothing but
+<code>Include:</code> lines. Switching presets becomes a one-line edit, and a GUI that rewrites its
+own file can never clobber your handwritten work.</p></div>
+</div></div>
+</section>
+
+<section id="s-expr">
+<h2 id="expr">Expression language</h2>
+<p><code>If:</code> and <code>Eval:</code> use muParserX. Alongside the usual arithmetic,
+comparison and logical operators, these are predefined:</p>
+<table>
+<thead><tr><th>Name</th><th>Type</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td><code>inputChannelCount</code></td><td>int</td><td>Channels entering the chain</td></tr>
+<tr><td><code>outputChannelCount</code></td><td>int</td><td>Channels leaving it</td></tr>
+<tr><td><code>sampleRate</code></td><td>float</td><td>Device sample rate in Hz</td></tr>
+<tr><td><code>stage</code></td><td>string</td><td><code>"pre-mix"</code>, <code>"post-mix"</code> or <code>"capture"</code></td></tr>
+<tr><td><code>deviceName</code></td><td>string</td><td>Device name</td></tr>
+<tr><td><code>connectionName</code></td><td>string</td><td>Connection/jack name</td></tr>
+<tr><td><code>deviceGuid</code></td><td>string</td><td>Endpoint GUID</td></tr>
+</tbody></table>
+<table>
+<thead><tr><th>Function</th><th>Returns</th></tr></thead>
+<tbody>
+<tr><td><code>readRegString(key, value)</code></td><td>A registry string &mdash; drive config from another tool's settings</td></tr>
+<tr><td><code>readRegDWORD(key, value)</code></td><td>A registry DWORD</td></tr>
+<tr><td><code>regexSearch(subject, pattern)</code></td><td>Whether the pattern matches</td></tr>
+<tr><td><code>regexReplace(subject, pattern, replacement)</code></td><td>The substituted string</td></tr>
+</tbody></table>
+<pre><code><span class="k">If</span>: sampleRate &gt;= <span class="n">88200</span>
+  <span class="k">Preamp</span>: <span class="n">-1</span> dB
+<span class="k">EndIf</span>:
+
+<span class="k">If</span>: regexSearch(deviceName, <span class="s">"(?i)HDMI"</span>)
+  <span class="k">Preamp</span>: <span class="n">-6</span> dB
+<span class="k">EndIf</span>:</code></pre>
+<div class="note tip"><p><code>stage</code>, <code>deviceName</code> and friends make
+<code>If:</code> a strictly more powerful alternative to <code>Device:</code> and
+<code>Stage:</code> when you need partial matches, negation or case-insensitive regex.</p></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="s-different">
+<h2 id="different">What differs in this build</h2>
+<p>Compared with stock Equalizer APO, five things behave differently. Everything else &mdash; file
+format, command set, install paths, registry keys &mdash; is unchanged, so existing configs and
+front-ends keep working.</p>
+
+<h3>1. VST3 hosting <span class="tag new">new</span></h3>
+<p>The <a href="#vst3"><code>VST3Plugin:</code></a> command, with class selection by GUID, state
+persistence, automatic latency compensation and crash containment. Written from scratch for this
+build.</p>
+
+<h3>2. Renaming a device no longer breaks its config <span class="tag chg">fixed</span></h3>
+<p>A <a href="#device"><code>Device:</code></a> alternative carrying a matching endpoint GUID now
+matches regardless of the name words.</p>
+
+<h3>3. Disabling effects no longer silences capture devices <span class="tag chg">fixed</span></h3>
+<p>With an empty filter chain <i>and</i> mismatched input/output channel counts &mdash; ordinary on
+microphones &mdash; the output buffer was never written, so the device went silent until Windows
+audio enhancements were toggled. Writing an empty config as a deliberate "off" state is now safe
+everywhere.</p>
+
+<h3>4. Illegal characters in device names are handled <span class="tag chg">fixed</span></h3>
+<p>Devices whose names contain characters Windows disallows in filenames no longer break
+per-device file handling.</p>
+
+<h3>5. The engine repairs its own registration <span class="tag new">new</span></h3>
+<p>Windows feature updates occasionally wipe the APO registration on an endpoint, which silently
+disables all processing &mdash; audio keeps playing, your config simply stops applying. This build
+detects that at logon and in the Editor, and offers a one-click repair that runs elevated through
+the Device Selector. It asks first and never repairs silently.</p>
+<div class="note"><p>Removed or unplugged hardware is deliberately <i>not</i> reported &mdash;
+otherwise every disconnected headset would produce a false alarm.</p></div>
+
+<p>The build is also compiled for AVX2 with 64-bit double-precision processing throughout.</p>
+</section>
+
+<section id="s-recipes">
+<h2 id="recipes">Recipes</h2>
+
+<h3>A headphone correction that stays clean</h3>
+<pre><code><span class="cm"># AutoEq-style curve plus deliberate headroom</span>
+<span class="k">Preamp</span>: <span class="n">-6.5</span> dB
+<span class="k">GraphicEQ</span>: <span class="n">21</span> <span class="n">3.5</span>; <span class="n">36</span> <span class="n">2.1</span>; <span class="n">63</span> <span class="n">0.4</span>; <span class="n">100</span> <span class="n">0</span>; <span class="n">1000</span> <span class="n">0</span>; <span class="n">5000</span> <span class="n">-2.3</span></code></pre>
+
+<h3>Late-night listening</h3>
+<pre><code><span class="cm"># tame the extremes, keep dialogue forward</span>
+<span class="k">Preamp</span>: <span class="n">-3</span> dB
+<span class="k">Filter</span>: ON LS Fc <span class="n">100</span> Hz Gain <span class="n">-6</span> dB
+<span class="k">Filter</span>: ON PK Fc <span class="n">2500</span> Hz Gain <span class="n">2</span> dB Q <span class="n">1</span>
+<span class="k">Filter</span>: ON HS Fc <span class="n">8000</span> Hz Gain <span class="n">-3</span> dB</code></pre>
+<p>Save that as <code>config\night.txt</code> and switch with a single
+<code>Include:</code> line.</p>
+
+<h3>Microphone chain</h3>
+<pre><code><span class="k">Stage</span>: capture
+<span class="k">Filter</span>: ON HP Fc <span class="n">85</span> Hz                    <span class="cm"># desk rumble, plosives</span>
+<span class="k">Filter</span>: ON PK Fc <span class="n">250</span> Hz Gain <span class="n">-3</span> dB Q <span class="n">1.2</span>  <span class="cm"># boxiness</span>
+<span class="k">Filter</span>: ON HS Fc <span class="n">7000</span> Hz Gain <span class="n">2</span> dB       <span class="cm"># a little air</span>
+<span class="k">Stage</span>: post-mix</code></pre>
+
+<h3>Per-device split in one file</h3>
+<pre><code><span class="k">Device</span>: Speakers {c1e4a8f2-0000-0000-0000-000000000000}
+<span class="k">Include</span>: <span class="s">speakers.txt</span>
+
+<span class="k">Device</span>: Headphones {9b2f77d1-0000-0000-0000-000000000000}
+<span class="k">Include</span>: <span class="s">headphones.txt</span>
+
+<span class="k">Device</span>: all</code></pre>
+
+<h3>Safety limiter at the very end</h3>
+<pre><code><span class="cm"># last line of config.txt, after every Include</span>
+<span class="k">VST3Plugin</span>: Library <span class="s">LoudMax.vst3</span></code></pre>
+<p>Placed last, it catches whatever any earlier stage &mdash; including a front-end you do not
+control &mdash; leaves on the bus.</p>
+</section>
+
+<section id="s-tricks">
+<h2 id="tricks">Hints &amp; tricks</h2>
+
+<h3>Work out loud in comments</h3>
+<p>Future-you will not remember why that <code>-2.5&nbsp;dB</code> at 3.15&nbsp;kHz exists. One
+<code>#</code> line per decision costs nothing and turns a config into something you can actually
+revisit.</p>
+
+<h3>Bisect a config that misbehaves</h3>
+<p>Comment out the bottom half, save, listen. The reload is instantaneous, which makes binary
+search the fastest debugging tool available here &mdash; usually quicker than reasoning about it.</p>
+
+<h3>Keep an A/B pair</h3>
+<pre><code><span class="k">Include</span>: <span class="s">variant-a.txt</span>
+<span class="cm">#Include: variant-b.txt</span></code></pre>
+<p>Moving one <code>#</code> switches the whole setup. Far more reliable than judging a change from
+memory.</p>
+
+<h3>Measure instead of guessing</h3>
+<p><code>Benchmark.exe</code> runs your configuration against a file with no audio device involved.
+It answers "is this affordable?" and "what does this actually do to the signal?" without touching
+your listening setup, and it can process a WAV offline so you can compare before and after in an
+editor.</p>
+
+<h3>Prefer many small files</h3>
+<p>One file per concern &mdash; <code>eq.txt</code>, <code>room.txt</code>, <code>mic.txt</code>
+&mdash; assembled by <code>config.txt</code>. It keeps diffs readable and lets you disable one
+concern without unpicking a wall of filters.</p>
+
+<h3>Watch out for double correction</h3>
+<p>If a headphone DSP, a vendor "audio enhancement" and this config are all active, you are
+correcting a correction. Turn the others off before tuning here.</p>
+
+<h3>Positive gain always costs headroom</h3>
+<p>Every boost brings clipping closer. Cutting elsewhere and raising the system volume gives the
+same balance with more margin, and it is the reason most published curves start with a negative
+<code>Preamp</code>.</p>
+
+<h3>Version your config directory</h3>
+<p>It is plain text. <code>git init</code> in the config folder gives real history and one-command
+recovery from an experiment that went wrong.</p>
+
+<h3>Let the Editor write the hard syntax</h3>
+<p>Device lines with GUIDs, VST3 <code>CID</code> values and <code>ChunkData</code> blobs are
+mechanical to generate and painful to type. Produce them in the Editor, then rearrange the file by
+hand if you prefer.</p>
+</section>
+
+<section id="s-trouble">
+<h2 id="trouble">Troubleshooting</h2>
+
+<h3>Nothing I change has any effect</h3>
+<ol>
+<li>Confirm the device is enabled in the <b>Device Selector</b> &mdash; and that it is the device
+Windows is actually using, not another endpoint with a similar name.</li>
+<li>Open the <b>Editor</b>: if the APO registration was lost, it will say so and offer to repair it.</li>
+<li>Check for a <code>Device:</code> or <code>Stage:</code> line above your edit that excludes the
+current device.</li>
+<li>Check for an earlier <code>Channel:</code> line still narrowing the selection.</li>
+<li>Make sure you edited a file that is actually reached by an <code>Include:</code> chain from
+<code>config.txt</code>.</li>
+</ol>
+
+<h3>Audio is distorted or crackling</h3>
+<p>Almost always clipping from positive gain. Add or lower a <code>Preamp</code> until it stops. If
+it persists with a large <code>Convolution</code> or several <code>GraphicEQ</code> curves, measure
+the cost with <code>Benchmark.exe</code>.</p>
+
+<h3>One line seems to be ignored</h3>
+<p><b>Run the checker first</b> &mdash; it prints the engine's own reason for every line it
+rejected, which otherwise only reaches a log file nobody opens:</p>
+<pre><code>Benchmark.exe --check</code></pre>
+<p>Add <code>--config &lt;folder&gt;</code> to check a configuration <i>before</i> copying it into
+place. It exits with code 1 if anything was reported, so it also works in a script.</p>
+<p>Two things it cannot tell you, because the engine does not report them either: a
+<b>misspelled command name</b> is dropped silently, and a bare whole number in
+<code>Copy:</code> selects a channel instead of setting a gain. Check spelling first.</p>
+<p>Otherwise check the units &mdash; <code>Delay</code> needs <code>ms</code> or
+<code>samples</code> and <code>Fc</code> needs <code>Hz</code>, and without them the line does
+nothing at all rather than something approximate. <code>Preamp</code> is the exception: its
+<code>dB</code> is optional.</p>
+
+<h3>My microphone went silent</h3>
+<p>The old bug behind this is fixed in this build (see <a href="#different">item 3</a>). If it still
+happens, toggle the device off and on in the Device Selector and check whether a
+<code>Stage: capture</code> block is doing something unintended.</p>
+
+<h3>A plugin does not load</h3>
+<ul>
+<li>It must be <b>64-bit</b>. 32-bit plugins cannot load into a 64-bit host.</li>
+<li>Quote the path if it contains spaces.</li>
+<li>For a module with several effects, specify <code>CID</code> &mdash; without it you get the first
+class, which may not be the one you want.</li>
+<li>Check the log: load failures are reported with a reason.</li>
+</ul>
+
+<h3>It worked yesterday and stopped after a Windows update</h3>
+<p>That is the exact case the self-repair feature exists for. Open the Editor; if the registration
+was wiped it will offer to restore it.</p>
+
+<h3>Starting over</h3>
+<p>An empty <code>config.txt</code> is a valid, fully bypassed configuration. Rename your files
+aside rather than deleting them, confirm clean audio, then add them back one
+<code>Include:</code> at a time.</p>
+</section>
+
+<section id="s-tools">
+<h2 id="tools">Tools &amp; logging</h2>
+<dl>
+<dt>Configuration Editor</dt><dd>Graphical editing with a live response graph, device dropdown, VST2/VST3 browser with class selection and plugin interfaces, plus the registration health check.</dd>
+<dt>Device Selector</dt><dd>Chooses which endpoints the APO attaches to, per stage. Requires elevation; changes take effect when the device is next opened.</dd>
+<dt>Benchmark</dt><dd>Offline harness. Runs a configuration against audio with no device involved &mdash; the safe way to measure cost or verify behaviour. <code>--devicename</code>, <code>--connectionname</code> and <code>--guid</code> let you test <code>Device:</code> matching without owning the hardware.</dd>
+<dt>Logging</dt><dd>Parse errors, ignored parameters, plugin load failures and filter construction all go to the log. When a line does not do what you expect, the log usually names the reason outright.</dd>
+</dl>
+</section>
+
+<section id="s-credits">
+<h2 id="credits">Credits &amp; licence</h2>
+<p><b>OmniAPO</b> is a private 64-bit build derived from the double-precision fork of Equalizer APO,
+with the additions described in <a href="#different">What differs in this build</a>.
+Equalizer APO was created by <b>Jonas Thedering</b> and is free software; OmniAPO would not exist
+without it.</p>
+<p>The combined work is distributed under the <b>GNU General Public License, version 3 or later</b>.
+Full licence texts for every bundled component ship in the <code>licenses\</code> folder of the
+install directory, alongside <code>NOTICE</code> and <code>CREDITS</code>. The display typeface is
+<b>Space Grotesk</b> by Florian Karsten, used under the SIL Open Font License 1.1.</p>
+<p>VST is a registered trademark of Steinberg Media Technologies GmbH. This product is not
+affiliated with or endorsed by Steinberg.</p>
+<p>Upstream documentation, for background on the original project:
+<a href="https://sourceforge.net/p/equalizerapo/wiki/Documentation/">sourceforge.net/p/equalizerapo/wiki/Documentation</a>.
+Where it disagrees with this page about behaviour, <b>this page describes the build you have
+installed</b>.</p>
+</section>
+
+<footer>
+Configuration Reference &middot; OmniAPO 1.0.1 &middot;
+generated for this build &middot; works offline
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  var q=document.getElementById('q'), qn=document.getElementById('qn'),
+      nores=document.getElementById('nores'),
+      secs=[].slice.call(document.querySelectorAll('main section')),
+      links=[].slice.call(document.querySelectorAll('#toc a')),
+      grps=[].slice.call(document.querySelectorAll('#toc .grp')),
+      floaters=[].slice.call(document.querySelectorAll('main > h2'));
+
+  /* ---- filter ---- */
+  function clearMarks(el){
+    el.querySelectorAll('mark.hit').forEach(function(m){
+      var t=document.createTextNode(m.textContent);
+      m.parentNode.replaceChild(t,m); });
+    el.normalize();
+  }
+  function mark(el,term){
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+      var p=n.parentNode.nodeName;
+      if(p==='SCRIPT'||p==='STYLE'||p==='MARK')return NodeFilter.FILTER_REJECT;
+      return n.nodeValue.toLowerCase().indexOf(term)>-1
+        ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; }});
+    var hits=[],n; while(n=w.nextNode()) hits.push(n);
+    hits.forEach(function(node){
+      var txt=node.nodeValue, low=txt.toLowerCase(), frag=document.createDocumentFragment(), i=0, j;
+      while((j=low.indexOf(term,i))>-1){
+        if(j>i) frag.appendChild(document.createTextNode(txt.slice(i,j)));
+        var m=document.createElement('mark'); m.className='hit';
+        m.textContent=txt.substr(j,term.length); frag.appendChild(m);
+        i=j+term.length;
+      }
+      if(i<txt.length) frag.appendChild(document.createTextNode(txt.slice(i)));
+      node.parentNode.replaceChild(frag,node);
+    });
+  }
+  function apply(){
+    var term=q.value.trim().toLowerCase();
+    secs.forEach(clearMarks);
+    if(!term){
+      secs.forEach(function(s){s.classList.remove('hide')});
+      links.forEach(function(a){a.parentNode.classList.remove('hide')});
+      grps.forEach(function(g){g.classList.remove('hide')});
+      floaters.forEach(function(h){h.style.display=''});
+      nores.style.display='none'; qn.textContent=''; return;
+    }
+    var shown=0, live={};
+    secs.forEach(function(s){
+      var hit=s.textContent.toLowerCase().indexOf(term)>-1;
+      s.classList.toggle('hide',!hit);
+      if(hit){ shown++; mark(s,term);
+        s.querySelectorAll('[id]').forEach(function(e){live[e.id]=1}); }
+    });
+    links.forEach(function(a){
+      a.parentNode.classList.toggle('hide',!live[a.getAttribute('href').slice(1)]);
+    });
+    grps.forEach(function(g){
+      var any=false,n=g.nextElementSibling;
+      while(n&&!n.classList.contains('grp')){
+        if(!n.classList.contains('hide')){any=true;break} n=n.nextElementSibling; }
+      g.classList.toggle('hide',!any);
+    });
+    floaters.forEach(function(h){h.style.display='none'});
+    nores.style.display=shown?'none':'block';
+    qn.textContent=shown+(shown===1?' section':' sections');
+  }
+  q.addEventListener('input',apply);
+  q.addEventListener('keydown',function(e){ if(e.key==='Escape'){q.value='';apply();q.blur()} });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q){e.preventDefault();q.focus()}
+  });
+
+  /* ---- scroll spy ---- */
+  var targets=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))})
+                   .filter(Boolean);
+  function spy(){
+    var best=null,bt=-1e9;
+    targets.forEach(function(t){
+      var y=t.getBoundingClientRect().top-90;
+      if(y<=0&&y>bt){bt=y;best=t}
+    });
+    links.forEach(function(a){
+      a.classList.toggle('on', !!best && a.getAttribute('href')==='#'+best.id);
+    });
+  }
+  addEventListener('scroll',spy,{passive:true}); spy();
+})();
+</script>
+</body>
+</html>

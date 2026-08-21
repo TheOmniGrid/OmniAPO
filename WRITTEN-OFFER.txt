@@ -1,0 +1,79 @@
+OmniAPO 1.0.1 - WRITTEN OFFER FOR SOURCE CODE
+==============================================
+
+This file satisfies section 6(b) of the GNU General Public License, version 3.
+Keep it with the program. If you pass OmniAPO on to anyone, pass this file on
+with it - doing so is what discharges your own obligation under section 6(b).
+
+
+THE OFFER
+---------
+
+OmniAPO 1.0.1 is free software licensed under the GNU General Public License,
+version 3 or later. You are entitled to its complete source code.
+
+For at least THREE YEARS from the date you received this copy, the copyright
+holder will, on request, provide the Corresponding Source for the version of
+OmniAPO you possess, to anyone who possesses that object code, for no more than
+the cost of physically performing the distribution.
+
+  Request it from:  omnivex@theomnigrid.biz
+
+The download this file came in already carries the Corresponding Source as
+OmniAPO-1.0.1-source.zip (with its SHA-256 alongside), which is section 6(a)
+delivery. This written offer exists for anyone who received the program
+without that archive.
+  Please state:     the version (1.0.1) and, if you can, the file name of the
+                    installer or archive you received.
+
+You do not need to have donated. You do not need to give a reason. This offer is
+extended to any third party who receives the binary from you.
+
+
+WHAT "CORRESPONDING SOURCE" MEANS HERE
+--------------------------------------
+
+Everything needed to generate, install and run the version you hold: the source
+for the audio processing object, the three Qt applications, the offline
+benchmark and checker, the installer script, the build script, and the exact
+versions of the third-party dependencies used. Not merely a source tarball that
+happens to be nearby - the source that corresponds to your binary.
+
+
+YOUR RIGHTS, IN SHORT
+---------------------
+
+  - Use it for anything, including commercially.
+  - Study and modify it.
+  - Redistribute it, modified or not, to anyone, for any price or for none.
+
+Nobody may add conditions on top of these. If you were given this program with
+terms that contradict the GPL, those terms have no force.
+
+The donation model does not change any of this. GPLv3 section 4 permits charging
+for the act of distribution; it does not permit restricting what a recipient may
+do afterwards, and section 10 forbids trying.
+
+
+THE LICENCE ITSELF
+------------------
+
+The full text is in LICENSE-GPLv3.txt alongside this file, and at
+https://www.gnu.org/licenses/gpl-3.0.html
+
+Where any summary - including this file - disagrees with the licence text, the
+licence text governs.
+
+
+THIRD-PARTY COMPONENTS
+----------------------
+
+OmniAPO includes work by others under their own licences. Every component is
+named and attributed in NOTICE, with full licence texts in licenses/. Those
+components are not covered by the offer above; each is obtainable from its own
+upstream, which NOTICE identifies.
+
+
+Copyright (c) Omnivex and contributors.
+Portions copyright Jonas Thedering, TheFireKahuna, Mixomo and others, as
+recorded in NOTICE.

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Get OmniAPO
+    url: https://ko-fi.com/theomnigrid
+    about: The download (installer, portable archive, source and documentation) is on Ko-fi and Patreon.
+  - name: Guide and configuration reference
+    url: https://github.com/TheOmniGrid/OmniAPO/tree/main/docs
+    about: Read these first for "nothing is happening" and "a line seems ignored".
