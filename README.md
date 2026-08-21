@@ -2,6 +2,9 @@
   <img src="assets/hero.gif" alt="OmniAPO — system-wide audio processing for Windows" width="100%">
 </p>
 
+<h1 align="center">OmniAPO</h1>
+<p align="center"><b>System-wide audio processing for Windows — a maintained Equalizer APO fork with double precision, VST3 hosting and a design of its own.</b></p>
+
 <p align="center">
   <a href="https://www.patreon.com/TheOmniGrid"><img alt="Get it on Patreon" src="https://img.shields.io/badge/Get%20it%20on-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white"></a>
   &nbsp;
