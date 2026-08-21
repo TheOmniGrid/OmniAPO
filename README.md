@@ -16,7 +16,19 @@
 [![Network](https://img.shields.io/badge/network%20access-none-00C66D?style=flat-square)](#what-makes-this-build-different)
 [![Languages](https://img.shields.io/badge/UI-EN%20%C2%B7%20DE%20%C2%B7%20ES%20%C2%B7%20FR%20%C2%B7%20RO-23232F?style=flat-square)](#what-makes-this-build-different)
 
-[**Get OmniAPO**](#what-a-donation-gets-you) · [What it does](#what-it-does) · [Documentation](#documentation) · [Changelog](CHANGELOG.md)
+<!-- Quick navigation. These are clickable: each chip jumps to a section of this
+     page, or to the document it names. Anchors are GitHub's own slugs for the
+     headings below -- if a heading is renamed, its chip has to be renamed too. -->
+<p align="center">
+<a href="#what-a-donation-gets-you"><img alt="Get OmniAPO" src="https://img.shields.io/badge/⬇%20Get%20OmniAPO-B147FB?style=for-the-badge"></a>
+<a href="#what-it-does"><img alt="What it does" src="https://img.shields.io/badge/What%20it%20does-23232F?style=for-the-badge"></a>
+<a href="#screenshots"><img alt="Screenshots" src="https://img.shields.io/badge/Screenshots-23232F?style=for-the-badge"></a>
+<a href="#what-makes-this-build-different"><img alt="What's different" src="https://img.shields.io/badge/What's%20different-23232F?style=for-the-badge"></a>
+<a href="#requirements"><img alt="Requirements" src="https://img.shields.io/badge/Requirements-23232F?style=for-the-badge"></a>
+<a href="#documentation"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-23232F?style=for-the-badge"></a>
+<a href="#honest-limitations"><img alt="Limitations" src="https://img.shields.io/badge/Limitations-23232F?style=for-the-badge"></a>
+<a href="CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/Changelog-23232F?style=for-the-badge"></a>
+</p>
 
 </div>
 
