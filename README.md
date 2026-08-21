@@ -4,13 +4,19 @@
 
 <br>
 
+<a href="https://www.patreon.com/TheOmniGrid"><img alt="Get it on Patreon" src="https://img.shields.io/badge/Get%20it%20on-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white"></a>
+&nbsp;
+<a href="https://ko-fi.com/theomnigrid"><img alt="Get it on Ko-fi" src="https://img.shields.io/badge/Get%20it%20on-Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white"></a>
+
+<br><br>
+
 [![Version](https://img.shields.io/badge/version-1.0.1-B147FB?style=flat-square)](CHANGELOG.md)
 [![Licence](https://img.shields.io/badge/licence-GPL%20v3%20or%20later-6D31FA?style=flat-square)](LICENSING.md)
 [![Platform](https://img.shields.io/badge/Windows-10%20%2F%2011%20x64%20%C2%B7%20AVX2-23232F?style=flat-square)](#requirements)
 [![Network](https://img.shields.io/badge/network%20access-none-00C66D?style=flat-square)](#what-makes-this-build-different)
 [![Languages](https://img.shields.io/badge/UI-EN%20%C2%B7%20DE%20%C2%B7%20ES%20%C2%B7%20FR%20%C2%B7%20RO-23232F?style=flat-square)](#what-makes-this-build-different)
 
-**[Get it on Ko-fi](https://ko-fi.com/theomnigrid)** · **[Get it on Patreon](https://www.patreon.com/TheOmniGrid)** · [What you get](#what-a-donation-gets-you) · [Documentation](#documentation) · [Licence](LICENSING.md)
+[**Get OmniAPO**](#what-a-donation-gets-you) · [What it does](#what-it-does) · [Documentation](#documentation) · [Changelog](CHANGELOG.md)
 
 </div>
 
@@ -116,7 +122,9 @@ A single download containing:
 
 <div align="center">
 
-**[Ko-fi](https://ko-fi.com/theomnigrid)** · **[Patreon](https://www.patreon.com/TheOmniGrid)**
+<a href="https://www.patreon.com/TheOmniGrid"><img alt="Get it on Patreon" src="https://img.shields.io/badge/Get%20it%20on-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white"></a>
+&nbsp;
+<a href="https://ko-fi.com/theomnigrid"><img alt="Get it on Ko-fi" src="https://img.shields.io/badge/Get%20it%20on-Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white"></a>
 
 </div>
 
