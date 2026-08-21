@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="116" viewBox="0 0 520 116" role="img" aria-labelledby="title">
+  <title id="title">Support OmniAPO on Ko-fi</title>
+  <rect x="2" y="2" width="516" height="112" rx="14" fill="#0b1419" stroke="#54d6ff" stroke-width="3"/>
+  <rect x="25" y="28" width="66" height="55" rx="11" fill="#ffffff"/>
+  <path d="M91 39h8c14 0 14 31 0 31h-8" fill="none" stroke="#ffffff" stroke-width="10"/>
+  <path d="M58 70C38 57 42 43 51 43c5 0 7 3 8 6 2-4 5-6 9-6 10 0 13 14-10 27Z" fill="#ff5e5b"/>
+  <text x="116" y="49" fill="#aeb7c4" font-family="Consolas, monospace" font-size="16" letter-spacing="3">OPTIONAL SUPPORT</text>
+  <text x="116" y="82" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">Support on Ko-fi</text>
+</svg>
