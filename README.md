@@ -4,14 +4,14 @@
 
 <br>
 
-<a href="https://www.patreon.com/TheOmniGrid"><img src="assets/support-patreon.svg" height="64" alt="Support OmniAPO on Patreon"></a>
-&nbsp;&nbsp;
-<a href="https://ko-fi.com/theomnigrid"><img src="assets/support-kofi.svg" height="64" alt="Support OmniAPO on Ko-fi"></a>
+<a href="https://www.patreon.com/TheOmniGrid"><img alt="Get it on Patreon" src="https://img.shields.io/badge/Get%20it%20on-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white"></a>
+&nbsp;
+<a href="https://ko-fi.com/theomnigrid"><img alt="Get it on Ko-fi" src="https://img.shields.io/badge/Get%20it%20on-Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white"></a>
 
 <br><br>
 
-[![Version](https://img.shields.io/badge/version-1.0.1-B147FB?style=flat-square)](CHANGELOG.md)
-[![Licence](https://img.shields.io/badge/licence-GPL%20v3%20or%20later-6D31FA?style=flat-square)](LICENSING.md)
+[![Version](https://img.shields.io/badge/version-1.0.1-8A7BFF?style=flat-square)](CHANGELOG.md)
+[![Licence](https://img.shields.io/badge/licence-GPL%20v3%20or%20later-6A5BDB?style=flat-square)](LICENSING.md)
 [![Platform](https://img.shields.io/badge/Windows-10%20%2F%2011%20x64%20%C2%B7%20AVX2-23232F?style=flat-square)](#requirements)
 [![Network](https://img.shields.io/badge/network%20access-none-00C66D?style=flat-square)](#what-makes-this-build-different)
 [![Languages](https://img.shields.io/badge/UI-EN%20%C2%B7%20DE%20%C2%B7%20ES%20%C2%B7%20FR%20%C2%B7%20RO-23232F?style=flat-square)](#what-makes-this-build-different)
@@ -20,7 +20,7 @@
      page, or to the document it names. Anchors are GitHub's own slugs for the
      headings below -- if a heading is renamed, its chip has to be renamed too. -->
 <p align="center">
-<a href="#what-a-donation-gets-you"><img alt="Get OmniAPO" src="https://img.shields.io/badge/⬇%20Get%20OmniAPO-B147FB?style=for-the-badge"></a>
+<a href="#what-a-donation-gets-you"><img alt="Get OmniAPO" src="https://img.shields.io/badge/⬇%20Get%20OmniAPO-8A7BFF?style=for-the-badge"></a>
 <a href="#what-it-does"><img alt="What it does" src="https://img.shields.io/badge/What%20it%20does-23232F?style=for-the-badge"></a>
 <a href="#screenshots"><img alt="Screenshots" src="https://img.shields.io/badge/Screenshots-23232F?style=for-the-badge"></a>
 <a href="#what-makes-this-build-different"><img alt="What's different" src="https://img.shields.io/badge/What's%20different-23232F?style=for-the-badge"></a>
