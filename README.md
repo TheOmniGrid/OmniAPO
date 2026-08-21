@@ -24,13 +24,13 @@
      page, or to the document it names. Anchors are GitHub's own slugs for the
      headings below -- if a heading is renamed, its chip has to be renamed too. -->
 <p align="center">
-  <a href="#what-a-donation-gets-you"><img alt="Get OmniAPO" src="https://img.shields.io/badge/⬇%20Get%20OmniAPO-8A7BFF?style=for-the-badge"></a>
-  <a href="#what-it-does"><img alt="What it does" src="https://img.shields.io/badge/What%20it%20does-23232F?style=for-the-badge"></a>
-  <a href="#screenshots"><img alt="Screenshots" src="https://img.shields.io/badge/Screenshots-23232F?style=for-the-badge"></a>
+  <a href="#get-omniapo"><img alt="Get OmniAPO" src="https://img.shields.io/badge/⬇%20Get%20OmniAPO-8A7BFF?style=for-the-badge"></a>
+  <a href="#what-it-does"><img alt="Features" src="https://img.shields.io/badge/Features-23232F?style=for-the-badge"></a>
   <a href="#what-makes-this-build-different"><img alt="What's different" src="https://img.shields.io/badge/What's%20different-23232F?style=for-the-badge"></a>
+  <a href="#screenshots"><img alt="Screenshots" src="https://img.shields.io/badge/Screenshots-23232F?style=for-the-badge"></a>
+  <a href="#honest-limitations"><img alt="Limitations" src="https://img.shields.io/badge/Limitations-23232F?style=for-the-badge"></a>
   <a href="#requirements"><img alt="Requirements" src="https://img.shields.io/badge/Requirements-23232F?style=for-the-badge"></a>
   <a href="#documentation"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-23232F?style=for-the-badge"></a>
-  <a href="#honest-limitations"><img alt="Limitations" src="https://img.shields.io/badge/Limitations-23232F?style=for-the-badge"></a>
   <a href="CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/Changelog-23232F?style=for-the-badge"></a>
 </p>
 
@@ -121,7 +121,7 @@ is being pulled into the audio process.
 
 There is no 32-bit and no ARM64 build.
 
-## What a donation gets you
+## Get OmniAPO
 
 A single download containing:
 
