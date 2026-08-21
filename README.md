@@ -28,11 +28,17 @@
   <a href="#what-it-does"><img alt="Features" src="https://img.shields.io/badge/Features-23232F?style=for-the-badge"></a>
   <a href="#what-makes-this-build-different"><img alt="What's different" src="https://img.shields.io/badge/What's%20different-23232F?style=for-the-badge"></a>
   <a href="#screenshots"><img alt="Screenshots" src="https://img.shields.io/badge/Screenshots-23232F?style=for-the-badge"></a>
+  <a href="PRIVACY.md"><img alt="Privacy" src="https://img.shields.io/badge/Privacy-23232F?style=for-the-badge"></a>
   <a href="#honest-limitations"><img alt="Limitations" src="https://img.shields.io/badge/Limitations-23232F?style=for-the-badge"></a>
   <a href="#requirements"><img alt="Requirements" src="https://img.shields.io/badge/Requirements-23232F?style=for-the-badge"></a>
   <a href="#documentation"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-23232F?style=for-the-badge"></a>
+  <a href="FAQ.md"><img alt="FAQ" src="https://img.shields.io/badge/FAQ-23232F?style=for-the-badge"></a>
+  <a href="SUPPORT.md"><img alt="Support" src="https://img.shields.io/badge/Support-23232F?style=for-the-badge"></a>
   <a href="CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/Changelog-23232F?style=for-the-badge"></a>
 </p>
+
+> [!IMPORTANT]
+> **Documentation-only repository.** This public repository contains OmniAPO documentation, approved artwork, and screenshots—not the application source tree, installer, binary releases, signing material, or private build infrastructure. Official distribution remains outside GitHub.
 
 ---
 
@@ -58,23 +64,6 @@ with a design of its own. First released as 1.0.0; 1.0.1 is a small correctness 
 | **Languages** | English, German, Spanish, French, Romanian — installer and all applications |
 | **Compatibility** | Peace, HeSuVi and other Equalizer APO front ends keep working unchanged |
 | **Licence** | GPL v3 or later — [what that means here](LICENSING.md) |
-
-## Screenshots
-
-<table>
-<tr>
-<td width="50%"><img src="assets/shot-editor.png" alt="Configuration Editor with a headphone-correction chain and the live frequency-response plot"><br><sub><b>The Configuration Editor.</b> A correction chain with the live frequency-response plot underneath — every row is one line of the plain-text configuration.</sub></td>
-<td width="50%"><img src="assets/shot-editor-vst3.png" alt="A VST3 plugin (LoudMax) hosted in the audio path with its own interface embedded in the Editor"><br><sub><b>A VST3 plugin in the audio path.</b> LoudMax as a system-wide limiter — its own interface embedded in the Editor, its state saved with the configuration.</sub></td>
-</tr>
-<tr>
-<td><img src="assets/shot-installer.png" alt="Installer welcome and components pages"><br><sub><b>The installer.</b> Four pages, three choices, in five languages. Upgrades in place over an existing installation without touching the configuration.</sub></td>
-<td><img src="assets/shot-checker.png" alt="Check configuration output listing three rejected lines and one plugin loaded from outside the installation"><br><sub><b>Check configuration.</b> Every line the engine would reject, and any plugin loaded from outside the installation — the error path, shown on purpose.</sub></td>
-</tr>
-<tr>
-<td><img src="assets/shot-guide.png" alt="The offline HTML guide"><br><sub><b>The guide.</b> Offline HTML with a sidebar and live filter, written for this build.</sub></td>
-<td><img src="assets/shot-reference.png" alt="The offline configuration reference"><br><sub><b>The configuration reference.</b> Every command the engine understands, written from the source — including the parts the wiki never mentioned.</sub></td>
-</tr>
-</table>
 
 ## What it does
 
@@ -112,6 +101,45 @@ is being pulled into the audio process.
 | **Dark by design** | Not a dark theme bolted onto a light one. One considered palette, one typeface, one set of shapes — shared with the rest of the Omni tools. |
 | **Documentation that ships with it** | A guide and a complete configuration reference, both offline HTML, both written for this build rather than inherited from a wiki. |
 | **It plays well with others** | Peace, HeSuVi and other front ends keep working. The registry key, install path and configuration format are deliberately unchanged from Equalizer APO. |
+
+## Screenshots
+
+<table>
+<tr>
+<td width="50%"><img src="assets/shot-editor.png" alt="Configuration Editor with a headphone-correction chain and the live frequency-response plot"><br><sub><b>The Configuration Editor.</b> A correction chain with the live frequency-response plot underneath — every row is one line of the plain-text configuration.</sub></td>
+<td width="50%"><img src="assets/shot-editor-vst3.png" alt="A VST3 plugin (LoudMax) hosted in the audio path with its own interface embedded in the Editor"><br><sub><b>A VST3 plugin in the audio path.</b> LoudMax as a system-wide limiter — its own interface embedded in the Editor, its state saved with the configuration.</sub></td>
+</tr>
+<tr>
+<td><img src="assets/shot-installer.png" alt="Installer welcome and components pages"><br><sub><b>The installer.</b> Four pages, three choices, in five languages. Upgrades in place over an existing installation without touching the configuration.</sub></td>
+<td><img src="assets/shot-checker.png" alt="Check configuration output listing three rejected lines and one plugin loaded from outside the installation"><br><sub><b>Check configuration.</b> Every line the engine would reject, and any plugin loaded from outside the installation — the error path, shown on purpose.</sub></td>
+</tr>
+<tr>
+<td><img src="assets/shot-guide.png" alt="The offline HTML guide"><br><sub><b>The guide.</b> Offline HTML with a sidebar and live filter, written for this build.</sub></td>
+<td><img src="assets/shot-reference.png" alt="The offline configuration reference"><br><sub><b>The configuration reference.</b> Every command the engine understands, written from the source — including the parts the wiki never mentioned.</sub></td>
+</tr>
+</table>
+
+## Honest limitations
+
+These are the things worth knowing before you decide, not after.
+
+- **Plugins run in-process.** They share `audiodg.exe` with the rest of the audio
+  pipeline, so a badly-behaved plugin can disrupt system-wide audio rather than only its
+  own chain. Processing faults are contained where the code can catch them; a plugin that
+  corrupts memory is not something any in-process host can fully defend against.
+- **Three plugins are verified end-to-end:** LoudMax, Airwindows Consolidated, TDR Nova.
+  Others may work and have not been checked.
+- **Impulse responses are decoded inside the audio process.** Only common containers are
+  accepted, and the format is read from the file's header rather than its extension, but
+  an impulse response from a stranger still deserves the caution you would give any
+  downloaded binary.
+- **A misspelled command name is dropped silently.** The engine does not report unknown
+  commands, so the configuration checker cannot either. Check spelling first when a line
+  seems ignored.
+- **Plugin latency changes mid-stream** are applied at the next configuration reload, not
+  immediately.
+- **Built by one person, on one machine.** Offered as-is, with no support commitment
+  behind it.
 
 ## Requirements
 
@@ -156,32 +184,15 @@ here so you can read them before deciding.
 - [**Configuration reference**](docs/Configuration-Reference.html) — every command the
   engine understands, written from the source
 - [**Readme**](docs/OmniAPO-README.pdf) — the short version, as a PDF
+- [**Privacy**](PRIVACY.md) — local processing and network behavior
+- [**FAQ**](FAQ.md) — common product, platform, and licensing questions
+- [**Support**](SUPPORT.md) — what to include in a useful report
+- [**Security**](SECURITY.md) — private vulnerability reporting
+- [**Contributing**](CONTRIBUTING.md) — documentation and reproducible-report scope
 - [**Changelog**](CHANGELOG.md)
 
 GitHub shows HTML files as source; use the *Raw* view's download or open the file after
 cloning to read the guide and the reference as pages.
-
-## Honest limitations
-
-These are the things worth knowing before you decide, not after.
-
-- **Plugins run in-process.** They share `audiodg.exe` with the rest of the audio
-  pipeline, so a badly-behaved plugin can disrupt system-wide audio rather than only its
-  own chain. Processing faults are contained where the code can catch them; a plugin that
-  corrupts memory is not something any in-process host can fully defend against.
-- **Three plugins are verified end-to-end:** LoudMax, Airwindows Consolidated, TDR Nova.
-  Others may work and have not been checked.
-- **Impulse responses are decoded inside the audio process.** Only common containers are
-  accepted, and the format is read from the file's header rather than its extension, but
-  an impulse response from a stranger still deserves the caution you would give any
-  downloaded binary.
-- **A misspelled command name is dropped silently.** The engine does not report unknown
-  commands, so the configuration checker cannot either. Check spelling first when a line
-  seems ignored.
-- **Plugin latency changes mid-stream** are applied at the next configuration reload, not
-  immediately.
-- **Built by one person, on one machine.** Offered as-is, with no support commitment
-  behind it.
 
 ## Quality
 
