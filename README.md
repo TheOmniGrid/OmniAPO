@@ -4,6 +4,7 @@
 
 <h1 align="center">OmniAPO</h1>
 <p align="center"><b>System-wide audio processing for Windows — a maintained Equalizer APO fork with double precision, VST3 hosting and a design of its own.</b></p>
+<p align="center">Part of the <a href="#the-omnivex-suite">OmniVex</a> suite.</p>
 
 <p align="center">
   <a href="https://www.patreon.com/TheOmniGrid"><img alt="Get it on Patreon" src="https://img.shields.io/badge/Get%20it%20on-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white"></a>
@@ -221,6 +222,15 @@ the double-precision fork by TheFireKahuna and contributors; the VST3 hosting la
 informed by Mixomo's implementation. FFTW, libsndfile, muparserx, TCLAP, Qt, the Steinberg
 VST3 SDK, NSIS, and Space Grotesk by Florian Karsten. Every one of them is named, with its
 licence, in the `NOTICE` file shipped with the build.
+
+## The OmniVex suite
+
+OmniAPO is one of a family of tools sharing a design language and a philosophy —
+modern, fast, no telemetry:
+
+**OmniTheme** · **OmniBlock** · **OmniCleaner** · **OmniAPO** · **OmniEQ** · **OmniPlay** · **OmniScale** · **OmniShade** · **OmniVisuals** · **OmniGPU** · **OmniWrappers**
+
+<sub>**OmniWrappers** is four Direct3D compatibility installers — OmniDXVK, OmniDxWrapper, OmniVKD3D and OmniVoodoo2.</sub>
 
 ---
 
