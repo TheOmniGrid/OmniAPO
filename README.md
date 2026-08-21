@@ -25,16 +25,16 @@
      headings below -- if a heading is renamed, its chip has to be renamed too. -->
 <p align="center">
   <a href="#get-omniapo"><img alt="Get OmniAPO" src="https://img.shields.io/badge/⬇%20Get%20OmniAPO-8A7BFF?style=for-the-badge"></a>
-  <a href="#what-it-does"><img alt="Features" src="https://img.shields.io/badge/Features-23232F?style=for-the-badge"></a>
-  <a href="#what-makes-this-build-different"><img alt="What's different" src="https://img.shields.io/badge/What's%20different-23232F?style=for-the-badge"></a>
-  <a href="#screenshots"><img alt="Screenshots" src="https://img.shields.io/badge/Screenshots-23232F?style=for-the-badge"></a>
-  <a href="PRIVACY.md"><img alt="Privacy" src="https://img.shields.io/badge/Privacy-23232F?style=for-the-badge"></a>
-  <a href="#honest-limitations"><img alt="Limitations" src="https://img.shields.io/badge/Limitations-23232F?style=for-the-badge"></a>
-  <a href="#requirements"><img alt="Requirements" src="https://img.shields.io/badge/Requirements-23232F?style=for-the-badge"></a>
-  <a href="#documentation"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-23232F?style=for-the-badge"></a>
-  <a href="FAQ.md"><img alt="FAQ" src="https://img.shields.io/badge/FAQ-23232F?style=for-the-badge"></a>
-  <a href="SUPPORT.md"><img alt="Support" src="https://img.shields.io/badge/Support-23232F?style=for-the-badge"></a>
-  <a href="CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/Changelog-23232F?style=for-the-badge"></a>
+  <a href="#what-it-does"><img alt="Features" src="https://img.shields.io/badge/Features-2B2545?style=for-the-badge"></a>
+  <a href="#what-makes-this-build-different"><img alt="What's different" src="https://img.shields.io/badge/What's%20different-2B2545?style=for-the-badge"></a>
+  <a href="#screenshots"><img alt="Screenshots" src="https://img.shields.io/badge/Screenshots-2B2545?style=for-the-badge"></a>
+  <a href="PRIVACY.md"><img alt="Privacy" src="https://img.shields.io/badge/Privacy-2B2545?style=for-the-badge"></a>
+  <a href="#honest-limitations"><img alt="Limitations" src="https://img.shields.io/badge/Limitations-2B2545?style=for-the-badge"></a>
+  <a href="#requirements"><img alt="Requirements" src="https://img.shields.io/badge/Requirements-2B2545?style=for-the-badge"></a>
+  <a href="#documentation"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-2B2545?style=for-the-badge"></a>
+  <a href="FAQ.md"><img alt="FAQ" src="https://img.shields.io/badge/FAQ-2B2545?style=for-the-badge"></a>
+  <a href="SUPPORT.md"><img alt="Support" src="https://img.shields.io/badge/Support-2B2545?style=for-the-badge"></a>
+  <a href="CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/Changelog-2B2545?style=for-the-badge"></a>
 </p>
 
 > [!IMPORTANT]
