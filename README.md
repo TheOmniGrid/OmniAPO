@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero.gif" alt="OmniAPO — System-wide audio processing for Windows." width="100%">
+  <img src="assets/hero.gif?v=20260822-symbol-reactor" alt="OmniAPO — System-wide audio processing for Windows." width="100%">
 </p>
 
 <h1 align="center">OmniAPO</h1>
