@@ -51,7 +51,7 @@ It is a maintained fork of [Equalizer APO](https://sourceforge.net/p/equalizerap
 rebuilt in double precision, compiled for AVX2, given a VST3 plugin host, and finished
 with a design of its own. First released as 1.0.0; 1.0.1 is a small correctness fix on top.
 
-## At a glance
+## Overview
 
 | | |
 |---|---|
@@ -194,7 +194,7 @@ here so you can read them before deciding.
 GitHub shows HTML files as source; use the *Raw* view's download or open the file after
 cloning to read the guide and the reference as pages.
 
-## Quality
+### Quality and verification
 
 Seven test suites, 403 assertions, all passing at release. They cover the real-time audio
 path including its zero-allocation guard, the VST3 module and plugin lifecycle, the
@@ -207,7 +207,7 @@ builds from the exact source in this download — the release manifest records t
 SHA-256 of every file, and `OmniAPO-1.0.1-source.zip` is the Corresponding Source for
 these specific binaries.
 
-## Licence
+### Legal and licensing
 
 **GNU General Public License, version 3 or later.**
 
@@ -279,6 +279,6 @@ for repository scope and reporting guidance.
   <a href="https://github.com/TheOmniGrid">The OmniGrid on GitHub</a> ·
   <a href="https://ko-fi.com/theomnigrid">Ko-fi</a> ·
   <a href="https://www.patreon.com/TheOmniGrid">Patreon</a><br><br>
-  <sub>Copyright © 2026 OmniVex · GPL-3.0-or-later · <a href="LICENSING.md">Licensing</a></sub><br>
+  <sub>Copyright © 2026 OmniVex · GPL-3.0-or-later · <a href="LICENSING.md">Legal &amp; licensing</a></sub><br>
   <sub>VST is a trademark of Steinberg Media Technologies GmbH; OmniAPO is not affiliated with Steinberg.</sub>
 </p>
