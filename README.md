@@ -12,12 +12,13 @@
   <a href="https://ko-fi.com/theomnigrid"><img alt="Get it on Ko-fi" src="https://img.shields.io/badge/Get%20it%20on-Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white"></a>
 </p>
 
+<!-- Suite metadata: Version · Platform · Languages · Telemetry · Distribution -->
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.1-8A7BFF?style=flat-square">
-  <img alt="Licence" src="https://img.shields.io/badge/licence-GPL%20v3%20or%20later-6A5BDB?style=flat-square">
-  <img alt="Platform" src="https://img.shields.io/badge/Windows-10%20%2F%2011%20x64%20%C2%B7%20AVX2-23232F?style=flat-square">
-  <img alt="Network" src="https://img.shields.io/badge/network%20access-none-00C66D?style=flat-square">
-  <img alt="Languages" src="https://img.shields.io/badge/UI-EN%20%C2%B7%20DE%20%C2%B7%20ES%20%C2%B7%20FR%20%C2%B7%20RO-23232F?style=flat-square">
+  <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%2010%20%2F%2011%20%C2%B7%20x64-0078D4?style=flat-square">
+  <img alt="Languages" src="https://img.shields.io/badge/languages-EN%20%C2%B7%20DE%20%C2%B7%20ES%20%C2%B7%20FR%20%C2%B7%20RO-8A7BFF?style=flat-square">
+  <img alt="Telemetry" src="https://img.shields.io/badge/telemetry-none-2EA043?style=flat-square">
+  <img alt="Distribution" src="https://img.shields.io/badge/distribution-docs%20only-99A3B1?style=flat-square">
 </p>
 
 <!-- Quick navigation. These are clickable: each chip jumps to a section of this
