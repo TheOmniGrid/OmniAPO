@@ -68,6 +68,8 @@ with a design of its own. First released as 1.0.0; 1.0.1 is a small correctness 
 
 ## What it does
 
+![OmniAPO capability map covering system-wide DSP, precision processing, plug-in hosting, and repair and validation](assets/presentation/capabilities.png)
+
 **Equalisation and filtering.** Parametric and graphic EQ, biquad and IIR filters,
 per-channel gain, delay, channel routing and copying, expressions with variables, and
 loudness correction. All of it driven by plain text files you can edit in any editor —
