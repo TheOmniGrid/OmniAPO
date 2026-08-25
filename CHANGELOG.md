@@ -13,6 +13,10 @@ analysis. It always corrected itself on the next edit, but it is now exact every
 The shipped guide and configuration reference also now correctly show this version
 number instead of 1.0.0.
 
+The current interface and installer catalogs are expanded to ten languages:
+English, German, Spanish, French, Romanian, Russian, Simplified Chinese,
+Japanese, Korean, and Turkish, with safe English fallback.
+
 ## 1.0.0 — OmniAPO
 
 Renamed to **OmniAPO** and restyled to share the visual design of OmniScale and OmniPlay: the Omni palette, Space Grotesk as the display face, and a redrawn icon and installer.
@@ -29,7 +33,9 @@ New: **Check configuration** in the Start menu runs the configuration checker (`
 
 Impulse responses are now identified by their container before libsndfile parses them, and only WAV, Wave64, AIFF, FLAC, Ogg and CAF are accepted. libsndfile 1.2.2 has published parser defects in formats nobody uses for impulse responses, and it selects its parser from the file's header rather than its extension.
 
-The full complement of interface languages is now English, German, Spanish, French and Romanian, in the installer and in all three applications.
+The initial public interface languages were English, German, Spanish, French
+and Romanian, in the installer and in all three applications. Version 1.0.1
+expands that set to ten languages.
 
 Bundles Space Grotesk (Florian Karsten) under the SIL Open Font License 1.1 — see `licenses/SpaceGrotesk-OFL-1.1.txt`.
 

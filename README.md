@@ -15,10 +15,10 @@
 <!-- Suite metadata: Version · Platform · Languages · Telemetry · Distribution -->
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.1-8A7BFF?style=flat-square">
-  <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%2010%20%2F%2011%20%C2%B7%20x64-0078D4?style=flat-square">
-  <img alt="Languages" src="https://img.shields.io/badge/languages-EN%20%C2%B7%20DE%20%C2%B7%20ES%20%C2%B7%20FR%20%C2%B7%20RO-8A7BFF?style=flat-square">
-  <img alt="Telemetry" src="https://img.shields.io/badge/telemetry-none-2EA043?style=flat-square">
-  <img alt="Distribution" src="https://img.shields.io/badge/distribution-docs%20only-99A3B1?style=flat-square">
+  <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%2010%20%2F%2011%20%C2%B7%20x64-57C7FF?style=flat-square">
+  <img alt="Languages: 10" src="https://img.shields.io/badge/languages-10-8A7BFF?style=flat-square">
+  <img alt="Telemetry" src="https://img.shields.io/badge/telemetry-none-00C66D?style=flat-square">
+  <img alt="Distribution" src="https://img.shields.io/badge/distribution-docs%20only-969FAB?style=flat-square&labelColor=30363D">
 </p>
 
 <!-- Quick navigation. These are clickable: each chip jumps to a section of this
@@ -62,7 +62,7 @@ with a design of its own. First released as 1.0.0; 1.0.1 is a small correctness 
 | **Plugins** | VST3 (and VST2) effect plugins hosted in the audio path, their editors embedded in the Configuration Editor |
 | **Configuration** | Plain text files, live-reloaded — or the Configuration Editor with a frequency-response plot |
 | **Network** | None. No update check, no telemetry, no networking library linked |
-| **Languages** | English, German, Spanish, French, Romanian — installer and all applications |
+| **Languages** | English, German, Spanish, French, Romanian, Russian, Simplified Chinese, Japanese, Korean and Turkish — installer and all applications |
 | **Compatibility** | Peace, HeSuVi and other Equalizer APO front ends keep working unchanged |
 | **Licence** | GPL v3 or later — [what that means here](LICENSING.md) |
 
@@ -100,7 +100,7 @@ is being pulled into the audio process.
 | **Double precision throughout** | The DSP runs in 64-bit floating point, not 32-bit. Deep cuts and long filter chains do not accumulate the same error. |
 | **AVX2** | Compiled for it, not merely capable of it. |
 | **No network access at all** | Not a setting — a property. No update check, no version ping, no telemetry. The binaries link no networking library, which you can verify from their import tables rather than take on trust. |
-| **Five interface languages** | English, German, Spanish, French, Romanian — in the installer and all three applications. |
+| **Ten interface languages** | English, German, Spanish, French, Romanian, Russian, Simplified Chinese, Japanese, Korean and Turkish — in the installer and all three applications. |
 | **Dark by design** | Not a dark theme bolted onto a light one. One considered palette, one typeface, one set of shapes — shared with the rest of the Omni tools. |
 | **Documentation that ships with it** | A guide and a complete configuration reference, both offline HTML, both written for this build rather than inherited from a wiki. |
 | **It plays well with others** | Peace, HeSuVi and other front ends keep working. The registry key, install path and configuration format are deliberately unchanged from Equalizer APO. |
@@ -113,7 +113,7 @@ is being pulled into the audio process.
 <td width="50%"><img src="assets/shot-editor-vst3.png" alt="A VST3 plugin (LoudMax) hosted in the audio path with its own interface embedded in the Editor"><br><sub><b>A VST3 plugin in the audio path.</b> LoudMax as a system-wide limiter — its own interface embedded in the Editor, its state saved with the configuration.</sub></td>
 </tr>
 <tr>
-<td><img src="assets/shot-installer.png" alt="Installer welcome and components pages"><br><sub><b>The installer.</b> Four pages, three choices, in five languages. Upgrades in place over an existing installation without touching the configuration.</sub></td>
+<td><img src="assets/shot-installer.png" alt="Installer welcome and components pages"><br><sub><b>The installer.</b> Four pages, three choices, in ten languages. Upgrades in place over an existing installation without touching the configuration.</sub></td>
 <td><img src="assets/shot-checker.png" alt="Check configuration output listing three rejected lines and one plugin loaded from outside the installation"><br><sub><b>Check configuration.</b> Every line the engine would reject, and any plugin loaded from outside the installation — the error path, shown on purpose.</sub></td>
 </tr>
 <tr>
@@ -156,7 +156,7 @@ There is no 32-bit and no ARM64 build.
 
 A single download containing:
 
-- **The installer** (`OmniAPO-x64-1.0.1.exe`) — five languages, and it upgrades in place
+- **The installer** (`OmniAPO-x64-1.0.1.exe`) — ten languages, and it upgrades in place
   over an existing installation without touching your configuration
 - **A portable archive** (`OmniAPO-x64-1.0.1.zip`) — the same files, for inspection or for
   running the Editor and the checker without installing
